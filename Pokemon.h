@@ -17,15 +17,13 @@ public:
 	//mr burns's billy
 	//member variables for Pokemon class
 protected:
-	int m_index_no=0;
+	int m_index_no=-1;
 	std::string m_name = "";
-	Type::Type_Enum m_type=Type::Type_Enum::Normal, m_type2=Type::Type_Enum::Normal;
+	Type::Type_Enum m_type=Type::Type_Enum::NONE, m_type2=Type::Type_Enum::NONE;
 	Evolutions m_evolution;
 public:
 	Pokemon();
-	/*constructor for one type*/
-	Pokemon(int index_no, std::string name, Type::Type_Enum type, Evolutions evolutions);
-	/*constructor for two type*/
+	/*constructor*/
 	Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions);
 	//methods
 	std::string pokemon_name();
@@ -53,7 +51,6 @@ protected:
 public:
 	//constructors
 	Gen1_Pokemon();
-	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Evolutions evolutions, Gen1_Stats stats);
 	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats);
 };
 
@@ -79,6 +76,5 @@ protected:
 public:
 	//constructors
 	Gen2_Pokemon();
-	Gen2_Pokemon(int index_no, std::string name, Type::Type_Enum type, Evolutions evolutions, Gen2_Stats stats);
 	Gen2_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen2_Stats stats);
 };

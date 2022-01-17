@@ -8,16 +8,7 @@
 	Pokemon::Evolutions::Evolutions() {};
 
 	Pokemon::Pokemon() {};
-	/*constructor for one type*/
-	Pokemon::Pokemon(int index_no, std::string name, Type::Type_Enum type, Evolutions evolutions) :m_index_no(index_no), m_name(name), m_type(type), m_evolution(evolutions){
-		this->m_index_no = index_no;
-		this->m_name = name;
-		this->m_type = type;
-		this->m_evolution = evolutions;
-
-		std::cout << m_index_no << "\t" << m_name << "\t" << Type::get_type_name(m_type) << "\t" << m_evolution.m_evolution_index_no << "\t" << m_evolution.m_evolution_level << std::endl;
-	}
-	/*constructor for two type*/
+	/*constructor*/
 	Pokemon::Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions) :m_index_no(index_no), m_name(name), m_type(type), m_type2(type2), m_evolution(evolutions){
 		this->m_index_no = index_no;
 		this->m_name = name;
@@ -25,8 +16,8 @@
 		this->m_type2 = type2;
 		this->m_evolution = evolutions;
 
-		std::cout << m_index_no << "\t" << m_name << "\t" << Type::get_type_name(m_type) << "\t" << Type::get_type_name(m_type2) << "\t" << m_evolution.m_evolution_index_no << "\t" << m_evolution.m_evolution_level << std::endl;
-		}
+		printf("Name: %s \nType: %s \nType2: %s \n", name.c_str(), Type::get_type_name(type).c_str(), Type::get_type_name(type2).c_str());
+	}
 
 	std::string Pokemon::pokemon_name() {
 		return m_name;
@@ -45,14 +36,9 @@
 	//default pokemon
 	Gen1_Pokemon::Gen1_Pokemon() {};
 	//gen1 constructor
-	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Evolutions evolutions, Gen1_Stats stats): Pokemon(index_no, name, type, evolutions),m_stats(stats) {
-		m_stats = stats;
-		std::cout << m_stats.m_hp << "\t" << m_stats.m_attack << "\t" << m_stats.m_defence << "\t" << m_stats.m_speed << "\t" << m_stats.m_special << std::endl;
-	}
-	//gen1 overloaded constructor
 	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
 		m_stats = stats;
-		std::cout << m_stats.m_hp << "\t" << m_stats.m_attack << "\t" << m_stats.m_defence << "\t" << m_stats.m_speed << "\t" << m_stats.m_special << std::endl;
+		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial: %d\n\n", m_stats.m_hp, m_stats.m_attack, m_stats.m_defence, m_stats.m_speed, m_stats.m_special);
 	}
 
 	//default stats
@@ -69,16 +55,9 @@
 	//default pokemon
 	Gen2_Pokemon::Gen2_Pokemon() {};
 	//gen2 constructor
-	Gen2_Pokemon::Gen2_Pokemon(int index_no, std::string name, Type::Type_Enum type, Evolutions evolutions, Gen2_Stats stats) :Pokemon(index_no, name, type, evolutions),m_stats(stats) {
-
-		m_stats = stats;
-
-		std::cout << m_stats.m_hp << "\t" << m_stats.m_attack << "\t" << m_stats.m_defence << "\t" << m_stats.m_speed << "\t" << m_stats.m_special_attack<<"\t"<<m_stats.m_special_defence << std::endl;
-	}
-	//gen2 overloaded constructor
 	Gen2_Pokemon::Gen2_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen2_Stats stats) :Pokemon(index_no, name, type, type2, evolutions),m_stats(stats) {
 
 		m_stats = stats;
 
-		std::cout << m_stats.m_hp << "\t" << m_stats.m_attack << "\t" << m_stats.m_defence << "\t" << m_stats.m_speed << "\t" << m_stats.m_special_attack << "\t" << m_stats.m_special_defence << std::endl;
+		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial Attack: %d\nSpecial Defence: %d\n\n", m_stats.m_hp, m_stats.m_attack, m_stats.m_defence, m_stats.m_speed, m_stats.m_special_attack,m_stats.m_special_defence);
 	}
