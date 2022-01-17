@@ -14,7 +14,7 @@ public:
 		Evolutions(int m_evolution_index_no, int m_evolution_level);
 		Evolutions();
 	};
-
+	//mr burns's billy
 	//member variables for Pokemon class
 protected:
 	int m_index_no=0;
