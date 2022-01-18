@@ -1,0 +1,8 @@
+13/01/2022
+-wasted memory, each pokemon will have space for two types
+-one type pokemon will have two types, as type 2 will default to NORMAL
+
+17/01/2022
+- I'm accepting the wasted memory, instead changed the enum type to have a NONE value, which
+defaults to 1 for both attack and defence.
+-abolished the overloaded constructor; now we have to put NONE for one types' second value

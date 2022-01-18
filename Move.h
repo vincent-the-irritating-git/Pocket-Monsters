@@ -18,7 +18,7 @@ public:
 struct Status_Change {
 public:
 	enum class status_change {
-		HP, ATTACK, DEFENCE, SPEED, SPECIAL
+			HP, ATTACK, DEFENCE, SPEED, SPECIAL
 	};
 private:
 	status_change m_status_change;
@@ -26,7 +26,8 @@ private:
 	static const std::array<std::string, 5> stat_names;
 public:
 	Status_Change(Status_Change::status_change, int);
-	static std::string get_status_change_names(Status_Change::status_change);
+	std::string get_status_change_names();
+	std::string get_status_stages();
 };
 
 struct Move {
@@ -45,7 +46,16 @@ struct Attack_Move:public Move {
 	Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power);
 };
 
+struct Attack_Move_Stats_Effect : public Attack_Move {
+	Status_Effect::status_effect m_stats;
+	int m_chance=0;
+	Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect, int chance);
+};
+
 struct Defence_Move :public Move {
 	Status_Change m_status;
 	Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Status_Change status);
 };
+
+Defence_Move barrier("barrier", 25, 100, Type::Type_Enum::Psychic, { Status_Change::status_change::DEFENCE,2 });
+Attack_Move tackle("Tackle", 35, 95, Type::Type_Enum::Normal, 30);
