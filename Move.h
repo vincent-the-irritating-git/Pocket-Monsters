@@ -56,6 +56,3 @@ struct Defence_Move :public Move {
 	Status_Change m_status;
 	Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Status_Change status);
 };
-
-Defence_Move barrier("barrier", 25, 100, Type::Type_Enum::Psychic, { Status_Change::status_change::DEFENCE,2 });
-Attack_Move tackle("Tackle", 35, 95, Type::Type_Enum::Normal, 30);
