@@ -22,6 +22,8 @@ Status_Change::Status_Change(Status_Change::status_change status, int stages): m
 	m_stages = stages;
 }
 
+Move::Move() {};
+
 Move::Move(std::string name, int pp, int accuracy, Type::Type_Enum type) : m_name(name), m_pp(pp), m_accuracy(accuracy), m_type(type) {
 	m_name = name;
 	m_pp = pp;
@@ -36,8 +38,9 @@ Attack_Move::Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum
 	std::cout << std::endl;
 }
 
-Attack_Move_Stats_Effect::Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect, int chance) :Attack_Move(name, pp, accuracy, type, power), m_stats(stats_effect), m_chance(chance) {
-	//your code here
+Attack_Move_Stats_Effect::Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect) :Attack_Move(name, pp, accuracy, type, power), m_stats(stats_effect){
+	m_stats = stats_effect;
+	std::cout << "Stats effect: " << m_stats << std::endl;
 }
 
 Defence_Move::Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Status_Change status) : Move(name, pp, accuracy, type), m_status(status) {

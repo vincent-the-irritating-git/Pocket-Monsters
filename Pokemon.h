@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <array>
 #include "Type.h"
 #include "Move.h"
 
@@ -21,12 +22,19 @@ protected:
 	std::string m_name = "";
 	Type::Type_Enum m_type=Type::Type_Enum::NONE, m_type2=Type::Type_Enum::NONE;
 	Evolutions m_evolution;
+	std::vector<Move> m_moveset;
+	std::array<Move, 4>m_known_moves;
 public:
 	Pokemon();
 	/*constructor*/
 	Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions);
 	//methods
 	std::string pokemon_name();
+	//for all moves pokemon can learn
+	void define_moveset(std::vector<Move>);
+	//for setting moves Pokemon knows
+	void define_known_moves(std::array<Move, 4>);
+	void show_moves();
 };
 
 //gen1 Pokemon

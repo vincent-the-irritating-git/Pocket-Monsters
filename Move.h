@@ -35,6 +35,7 @@ struct Move {
 	int m_pp = 1;
 	int m_accuracy = 1;
 	Type::Type_Enum m_type = Type::Type_Enum::Normal;
+	Move();
 	Move(std::string, int, int, Type::Type_Enum);
 };
 
@@ -48,8 +49,12 @@ struct Attack_Move:public Move {
 
 struct Attack_Move_Stats_Effect : public Attack_Move {
 	Status_Effect::status_effect m_stats;
-	int m_chance=0;
-	Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect, int chance);
+	Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect);
+};
+
+struct Attack_Move_Stats_Change : public Attack_Move {
+	Status_Change::status_change m_stats_change;
+	Attack_Move_Stats_Change(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Change::status_change stats_change);
 };
 
 struct Defence_Move :public Move {

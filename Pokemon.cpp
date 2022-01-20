@@ -22,7 +22,18 @@
 	std::string Pokemon::pokemon_name() {
 		return m_name;
 	}
+
+	void Pokemon::define_moveset(std::vector<Move> moveset) {
+		m_moveset = moveset;
+	}
 	
+	void Pokemon::show_moves() {
+		std::cout << m_name<<":" << std::endl;
+		for (Move m : m_moveset) {
+			std::cout << m.m_name << std::endl;
+		}
+	}
+
 	//default
 	Gen1_Pokemon::Gen1_Stats::Gen1_Stats() {};
 	//gen1 stats constructor
