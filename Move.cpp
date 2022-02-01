@@ -1,26 +1,37 @@
 #include "Move.h"
 #include <string>
 
-const std::array<std::string, 5> Status_Change::stat_names{ "HP","Attack","Defence","Speed","Special" };
+const std::array<std::string, 5> Stats::stat_names{ "HP","Attack","Defence","Speed","Special" };
+const std::array<std::string, 6> Status_Effect::effect_names{ "Normal","Paralysis","Burn","Poison","Freeze","Sleep" };
 
-std::string Status_Change::get_status_change_names() {
-	return stat_names[static_cast<int>(m_status_change)];
+std::string Stats::get_stats_value_names() {
+	return stat_names[static_cast<int>(m_stats_value)];
 }
 
-std::string Status_Change::get_status_stages() {
-	return std::to_string(m_stages);
+int Stats::get_stats_stages() {
+	return m_stages;
 }
 
-Status_Effect::Status_Effect(Status_Effect::status_effect status, double chance) :m_status_effect(status),m_chance(chance) {
+Status_Effect::Status_Effect(Status_Effect::status_effect_value status, double chance) :m_status_effect(status),m_chance(chance) {
 	m_status_effect = status;
 	m_chance = chance;
 }
 
-Status_Change::Status_Change(Status_Change::status_change status, int stages): m_status_change(status), m_stages(stages)
+std::string Status_Effect::get_status_effect_name() {
+	return effect_names[static_cast<int>(m_status_effect)];
+}
+
+double Status_Effect::get_status_get_chance() {
+	return m_chance;
+}
+
+Stats::Stats(Stats::stats_value status, int stages): m_stats_value(status), m_stages(stages)
 {
-	m_status_change = status;
+	m_stats_value = status;
 	m_stages = stages;
 }
+
+Stats::Stats() {};
 
 Move::Move() {};
 
@@ -35,17 +46,25 @@ Move::Move(std::string name, int pp, int accuracy, Type::Type_Enum type) : m_nam
 Attack_Move::Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power):Move(name,pp,accuracy,type),m_power(power){
 	m_power = power;
 	std::cout <<"Power: " << power << std::endl;
+}
+
+Status_Effect_Attack_Move::Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect stats_effect) :Attack_Move(name, pp, accuracy, type, power), m_status_effect(stats_effect){
+	m_status_effect = stats_effect;
+	std::cout << "Stats effect: " << m_status_effect.get_status_effect_name() << std::endl;
+	std::cout << "Chance: " << m_status_effect.get_status_get_chance() << std::endl;
 	std::cout << std::endl;
 }
 
-Attack_Move_Stats_Effect::Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect) :Attack_Move(name, pp, accuracy, type, power), m_stats(stats_effect){
-	m_stats = stats_effect;
-	std::cout << "Stats effect: " << m_stats << std::endl;
+Stats_Value_Attack_Move::Stats_Value_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Stats stats_change) :Attack_Move(name, pp, accuracy, type, power), m_stats_value(stats_change) {
+	m_stats_value = stats_change;
+	std::cout << "Stats change: " << m_stats_value.get_stats_value_names() << std::endl;
+	std::cout << "Stages changed: " << m_stats_value.get_stats_stages() << std::endl;
+	std::cout << std::endl;
 }
 
-Defence_Move::Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Status_Change status) : Move(name, pp, accuracy, type), m_status(status) {
-	m_status = status;
-	std::cout << "Status change: " << m_status.get_status_change_names()<<std::endl;
-	std::cout << "Stages changed: " << m_status.get_status_stages() << std::endl;
+Defence_Move::Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Stats stats) : Move(name, pp, accuracy, type), m_stats_value(stats) {
+	m_stats_value = stats;
+	std::cout << "Stats change: " << m_stats_value.get_stats_value_names()<<std::endl;
+	std::cout << "Stages changed: " << m_stats_value.get_stats_stages() << std::endl;
 	std::cout << std::endl;
 }

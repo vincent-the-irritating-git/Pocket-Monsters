@@ -23,13 +23,17 @@
 		return m_name;
 	}
 
-	void Pokemon::define_moveset(std::vector<Move> moveset) {
+	void Pokemon::define_moveset(std::vector<Move> moveset){
 		m_moveset = moveset;
 	}
-	
+
+	void Pokemon::define_known_moves(std::array<Move, 4> moves){
+		m_known_moves = moves;
+	}
+
 	void Pokemon::show_moves() {
 		std::cout << m_name<<":" << std::endl;
-		for (Move m : m_moveset) {
+		for (Move m : m_known_moves) {
 			std::cout << m.m_name << std::endl;
 		}
 	}
