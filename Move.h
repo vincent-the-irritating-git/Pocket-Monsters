@@ -5,29 +5,33 @@
 
 struct Status_Effect {
 public:
-	enum class status_effect {
+	enum class status_effect_value {
 		NORMAL, PARALYSIS, BURN, POISON, FREEZE, SLEEP
 	};
 private:
-	status_effect m_status_effect;
-	double m_chance;
+	status_effect_value m_status_effect=Status_Effect::status_effect_value::BURN;
+	double m_chance=0;
+	static const std::array<std::string, 6>effect_names;
 public:
-	Status_Effect(Status_Effect::status_effect status_effect, double chance);
+	Status_Effect(Status_Effect::status_effect_value status_effect, double chance);
+	std::string get_status_effect_name();
+	double get_status_get_chance();
 };
 
-struct Status_Change {
+struct Stats {
 public:
-	enum class status_change {
+	enum class stats_value {
 			HP, ATTACK, DEFENCE, SPEED, SPECIAL
 	};
 private:
-	status_change m_status_change;
-	int m_stages;
+	stats_value m_stats_value=Stats::stats_value::ATTACK;
+	int m_stages=0;
 	static const std::array<std::string, 5> stat_names;
 public:
-	Status_Change(Status_Change::status_change, int);
-	std::string get_status_change_names();
-	std::string get_status_stages();
+	Stats(Stats::stats_value, int);
+	Stats();
+	std::string get_stats_value_names();
+	int get_stats_stages();
 };
 
 struct Move {
@@ -47,17 +51,17 @@ struct Attack_Move:public Move {
 	Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power);
 };
 
-struct Attack_Move_Stats_Effect : public Attack_Move {
-	Status_Effect::status_effect m_stats;
-	Attack_Move_Stats_Effect(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect::status_effect stats_effect);
+struct Status_Effect_Attack_Move : public Attack_Move {
+	Status_Effect m_status_effect;
+	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect stats_effect);
 };
 
-struct Attack_Move_Stats_Change : public Attack_Move {
-	Status_Change::status_change m_stats_change;
-	Attack_Move_Stats_Change(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Change::status_change stats_change);
+struct Stats_Value_Attack_Move : public Attack_Move {
+	Stats m_stats_value;
+	Stats_Value_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Stats stats_change);
 };
 
 struct Defence_Move :public Move {
-	Status_Change m_status;
-	Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Status_Change status);
+	Stats m_stats_value;
+	Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Stats status);
 };
