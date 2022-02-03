@@ -35,6 +35,9 @@ public:
 };
 
 struct Move {
+	bool is_target_enemy = true;
+	bool is_status_inflicting = false;
+	bool is_stats_changing = false;
 	std::string m_name = "";
 	int m_pp = 1;
 	int m_accuracy = 1;
