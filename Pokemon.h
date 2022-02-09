@@ -18,9 +18,9 @@ public:
 	};
 	//member variables for Pokemon class
 protected:
-	int m_index_no=-1;
+	int m_index_no = -1;
 	std::string m_name = "";
-	Type::Type_Enum m_type=Type::Type_Enum::NONE, m_type2=Type::Type_Enum::NONE;
+	Type::Type_Enum m_type = Type::Type_Enum::NONE, m_type2 = Type::Type_Enum::NONE;
 	Evolutions m_evolution;
 	std::vector<Move> m_moveset;
 	std::array<Move, 4>m_known_moves;
@@ -38,7 +38,7 @@ public:
 };
 
 //gen1 Pokemon
-class Gen1_Pokemon: public Pokemon {
+class Gen1_Pokemon : public Pokemon {
 public:
 	//where the pokemon stats are held
 	struct Gen1_Stats {
@@ -66,7 +66,7 @@ public:
 };
 
 //gen2 Pokemon
-class Gen2_Pokemon: public Pokemon {
+class Gen2_Pokemon : public Pokemon {
 public:
 	//where the pokemon stats are held
 	struct Gen2_Stats {
