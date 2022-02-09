@@ -31,7 +31,7 @@ public:
 	//methods
 	std::string pokemon_name();
 	//for all moves pokemon can learn
-	void define_moveset(std::vector<Move>);
+	void define_all_possible_moves(std::vector<Move>);
 	//for setting moves Pokemon knows
 	void define_known_moves(std::array<Move, 4>);
 	void show_moves();
@@ -47,11 +47,14 @@ public:
 		Gen1_Stats();
 		Gen1_Stats(int hp, int attack, int defence, int speed, int special);
 	private:
-		int m_hp = 1;
-		int m_attack = 1;
-		int m_defence = 1;
-		int m_speed = 1;
-		int m_special = 1;
+		std::unordered_map<Stats::stats_value, int>pokemon_stats{
+			{Stats::stats_value::HP,0},
+			{Stats::stats_value::ATTACK,0},
+			{Stats::stats_value::DEFENCE,0},
+			{Stats::stats_value::SPEED,0},
+			{Stats::stats_value::SPECIAL,0},
+			{Stats::stats_value::CRITICAL_HIT_RATIO,0}
+		};
 	};
 	//the Gen1 member variable
 protected:
@@ -72,12 +75,15 @@ public:
 		Gen2_Stats();
 		Gen2_Stats(int hp, int attack, int defence, int speed, int special_attack, int special_defence);
 	private:
-		int m_hp = 1;
-		int m_attack = 1;
-		int m_defence = 1;
-		int m_speed = 1;
-		int m_special_attack = 1;
-		int m_special_defence = 1;
+		std::unordered_map<Stats::stats_value, int>pokemon_stats{ {
+			Stats::stats_value::HP,0},
+			{Stats::stats_value::ATTACK,0},
+			{Stats::stats_value::DEFENCE,0},
+			{Stats::stats_value::SPEED,0},
+			{Stats::stats_value::SPECIAL_ATTACK,0},
+			{Stats::stats_value::SPECIAL_DEFENCE,0},
+			{Stats::stats_value::CRITICAL_HIT_RATIO,0}
+		};
 	};
 protected:
 	Gen2_Stats m_stats;

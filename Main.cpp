@@ -22,11 +22,11 @@ int main() {
 	Gen1_Pokemon alakazam(65, "Alakazam", Type::Type_Enum::Psychic, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(55, 50, 45, 135, 120));
 	Gen1_Pokemon pinsir(127, "Pinsir", Type::Type_Enum::Bug, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(65, 125, 100, 55, 85));
 
-	bulbasaur.define_moveset(std::vector<Move>{barrier,tackle,poison_powder,growl} );
+	bulbasaur.define_all_possible_moves(std::vector<Move>{barrier,tackle,poison_powder,growl} );
 	bulbasaur.define_known_moves(std::array<Move,4>{tackle,growl,poison_powder});
 	bulbasaur.show_moves();
 
-	pikachu.define_moveset(std::vector<Move>{tackle, growl, thundershock});
+	pikachu.define_all_possible_moves(std::vector<Move>{tackle, growl, thundershock});
 	pikachu.define_known_moves(std::array<Move, 4>{tackle, growl, thundershock});
 	pikachu.show_moves();
 

@@ -1,7 +1,7 @@
 #include "Move.h"
 #include <string>
 
-const std::array<std::string, 5> Stats::stat_names{ "HP","Attack","Defence","Speed","Special" };
+const std::array<std::string, 8> Stats::stat_names{ "HP","Attack","Defence","Speed", "Special", "Special Attack", "Special Defence", "Critical Hit Ratio"};
 const std::array<std::string, 6> Status_Effect::effect_names{ "Normal","Paralysis","Burn","Poison","Freeze","Sleep" };
 
 std::string Stats::get_stats_value_names() {

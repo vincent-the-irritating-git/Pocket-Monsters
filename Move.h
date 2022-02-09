@@ -21,12 +21,12 @@ public:
 struct Stats {
 public:
 	enum class stats_value {
-			HP, ATTACK, DEFENCE, SPEED, SPECIAL
+			HP, ATTACK, DEFENCE, SPEED, SPECIAL, SPECIAL_ATTACK, SPECIAL_DEFENCE, CRITICAL_HIT_RATIO
 	};
 private:
 	stats_value m_stats_value=Stats::stats_value::ATTACK;
 	int m_stages=0;
-	static const std::array<std::string, 5> stat_names;
+	static const std::array<std::string, 8> stat_names;
 public:
 	Stats(Stats::stats_value, int);
 	Stats();
