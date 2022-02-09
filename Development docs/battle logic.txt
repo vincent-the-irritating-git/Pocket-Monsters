@@ -1,19 +1,27 @@
-Battle(Pokemon user, Pokemon enemy){
 
+Pokemon user
+Pokemon enemy
 Pokemon[]turn_order
 Move move_selected
 
-turn_order=Pokemon[] check_first_to_move(user.speed, enemy.speed){
-//see who is faster and put them at position 0 in the array; 
-//opponent in 1
+
+
+Turn(int pokemon_current_turn){
+
+check_first_to_move(){
+//see who is (user or enemy) faster and put them at position 0 in the array; 
+//other in 1
+
 }
 
-move_selected=Move select_move(){
-	display_moves(Pokemon pokemon){
-	//lists the users moves
+turn_order = check_first_to_move();
+
+Move select_move(){
 	pokemon_array[0].list_moves()
-	}
+	return display_moves(Pokemon pokemon)
 }
+
+move_selected=select_move();
 
 check_target(Move move){
 //if true, move hits enemy, else us
@@ -28,6 +36,7 @@ use_move(Pokemon attacking, Pokemon defending, Move move){
 //do damage
 //inflict status
 //change stages
+
 int damage=(move.power*attacking.attack/defending.defence)/50+2*critical()*random()*STAB*type*burn
 
 }
