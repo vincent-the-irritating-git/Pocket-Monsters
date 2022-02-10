@@ -11,11 +11,11 @@ std::unordered_map <std::string, Gen1_Pokemon> Gen1_Pokedex;
 std::unordered_map<std::string, Move> Move_List;
 
 int main() {
-	Defence_Move barrier("Barrier", 15, 100, Type::Type_Enum::Psychic, Stats(Stats::stats_value::DEFENCE, 2));
+	Defence_Move barrier("Barrier", 15, 100, Type::Type_Enum::Psychic, Stats_Change(stats_value::DEFENCE, 2));
 	Attack_Move tackle("Tackle", 35, 95, Type::Type_Enum::Normal, 30);
-	Status_Effect_Attack_Move poison_powder("Poison Powder", 15, 75, Type::Type_Enum::Poison, 0, Status_Effect(Status_Effect::status_effect_value::POISON, 100 ));
-	Stats_Value_Attack_Move growl("Growl", 40, 100, Type::Type_Enum::Normal, 0, Stats(Stats::stats_value::ATTACK,1 ));
-	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::Type_Enum::Electric, 40, Status_Effect(Status_Effect::status_effect_value::PARALYSIS,10 ));
+	Status_Effect_Attack_Move poison_powder("Poison Powder", 15, 75, Type::Type_Enum::Poison, 0, Status_Effect_Change(status_effect_value::POISON, 100 ));
+	Stats_Value_Attack_Move growl("Growl", 40, 100, Type::Type_Enum::Normal, 0, Stats_Change(stats_value::ATTACK,1 ));
+	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::Type_Enum::Electric, 40, Status_Effect_Change(status_effect_value::PARALYSIS,10 ));
 
 	Gen1_Pokemon bulbasaur(1, "Bulbasaur", Type::Type_Enum::Grass, Type::Type_Enum::Poison, Pokemon::Evolutions(2, 16), Generation_1::Gen1_Stats(45, 49, 49, 65, 45));
 	Gen1_Pokemon pikachu(25, "Pikachu", Type::Type_Enum::Electric, Type::Type_Enum::NONE, Pokemon::Evolutions(), Generation_1::Gen1_Stats(35,55,30,50,	90));

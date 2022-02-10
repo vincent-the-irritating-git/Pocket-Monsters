@@ -42,30 +42,30 @@
 	Gen1_Pokemon::Gen1_Stats::Gen1_Stats() {};
 	//gen1 stats constructor
 	Gen1_Pokemon::Gen1_Stats::Gen1_Stats(int hp, int attack, int defence, int speed, int special){
-		Gen1_Stats::pokemon_stats.at(Stats::stats_value::HP)=hp;
-		Gen1_Stats::pokemon_stats.at(Stats::stats_value::ATTACK) = attack;
-		Gen1_Stats::pokemon_stats.at(Stats::stats_value::DEFENCE) = defence;
-		Gen1_Stats::pokemon_stats.at(Stats::stats_value::SPEED) = speed;
-		Gen1_Stats::pokemon_stats.at(Stats::stats_value::SPECIAL) = special;
+		Gen1_Stats::pokemon_stats.at(stats_value::HP)=hp;
+		Gen1_Stats::pokemon_stats.at(stats_value::ATTACK) = attack;
+		Gen1_Stats::pokemon_stats.at(stats_value::DEFENCE) = defence;
+		Gen1_Stats::pokemon_stats.at(stats_value::SPEED) = speed;
+		Gen1_Stats::pokemon_stats.at(stats_value::SPECIAL) = special;
 	}
 	//default pokemon
 	Gen1_Pokemon::Gen1_Pokemon() {};
 	//gen1 constructor
 	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
 		m_stats = stats;
-		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial: %d\n\n", m_stats.pokemon_stats.at(Stats::stats_value::HP), m_stats.pokemon_stats.at(Stats::stats_value::ATTACK), m_stats.pokemon_stats.at(Stats::stats_value::DEFENCE), m_stats.pokemon_stats.at(Stats::stats_value::SPEED), m_stats.pokemon_stats.at(Stats::stats_value::SPECIAL));
+		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial: %d\n\n", m_stats.pokemon_stats.at(stats_value::HP), m_stats.pokemon_stats.at(stats_value::ATTACK), m_stats.pokemon_stats.at(stats_value::DEFENCE), m_stats.pokemon_stats.at(stats_value::SPEED), m_stats.pokemon_stats.at(stats_value::SPECIAL));
 	}
 
 	//default stats
 	Gen2_Pokemon::Gen2_Stats::Gen2_Stats() {};
 	//gen2 stats constructor
 	Gen2_Pokemon::Gen2_Stats::Gen2_Stats(int hp, int attack, int defence, int speed, int special_attack, int special_defence){
-		Gen2_Stats::pokemon_stats.at(Stats::stats_value::HP) = hp;
-		Gen2_Stats::pokemon_stats.at(Stats::stats_value::ATTACK) = attack;
-		Gen2_Stats::pokemon_stats.at(Stats::stats_value::DEFENCE) = defence;
-		Gen2_Stats::pokemon_stats.at(Stats::stats_value::SPEED) = speed;
-		Gen2_Stats::pokemon_stats.at(Stats::stats_value::SPECIAL_ATTACK) = special_attack;
-		Gen2_Stats::pokemon_stats.at(Stats::stats_value::SPECIAL_DEFENCE) = special_defence;
+		Gen2_Stats::pokemon_stats.at(stats_value::HP) = hp;
+		Gen2_Stats::pokemon_stats.at(stats_value::ATTACK) = attack;
+		Gen2_Stats::pokemon_stats.at(stats_value::DEFENCE) = defence;
+		Gen2_Stats::pokemon_stats.at(stats_value::SPEED) = speed;
+		Gen2_Stats::pokemon_stats.at(stats_value::SPECIAL_ATTACK) = special_attack;
+		Gen2_Stats::pokemon_stats.at(stats_value::SPECIAL_DEFENCE) = special_defence;
 	}
 	//default pokemon
 	Gen2_Pokemon::Gen2_Pokemon() {};
@@ -74,5 +74,5 @@
 
 		m_stats = stats;
 
-		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial Attack: %d\nSpecial Defence: %d\n\n", m_stats.pokemon_stats.at(Stats::stats_value::HP), m_stats.pokemon_stats.at(Stats::stats_value::ATTACK), m_stats.pokemon_stats.at(Stats::stats_value::DEFENCE), m_stats.pokemon_stats.at(Stats::stats_value::SPEED), m_stats.pokemon_stats.at(Stats::stats_value::SPECIAL_ATTACK), m_stats.pokemon_stats.at(Stats::stats_value::SPECIAL_DEFENCE));
+		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial Attack: %d\nSpecial Defence: %d\n\n", m_stats.pokemon_stats.at(stats_value::HP), m_stats.pokemon_stats.at(stats_value::ATTACK), m_stats.pokemon_stats.at(stats_value::DEFENCE), m_stats.pokemon_stats.at(stats_value::SPEED), m_stats.pokemon_stats.at(stats_value::SPECIAL_ATTACK), m_stats.pokemon_stats.at(stats_value::SPECIAL_DEFENCE));
 	}

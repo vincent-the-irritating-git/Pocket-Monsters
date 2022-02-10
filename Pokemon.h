@@ -47,13 +47,13 @@ public:
 		Gen1_Stats();
 		Gen1_Stats(int hp, int attack, int defence, int speed, int special);
 	private:
-		std::unordered_map<Stats::stats_value, int>pokemon_stats{
-			{Stats::stats_value::HP,0},
-			{Stats::stats_value::ATTACK,0},
-			{Stats::stats_value::DEFENCE,0},
-			{Stats::stats_value::SPEED,0},
-			{Stats::stats_value::SPECIAL,0},
-			{Stats::stats_value::CRITICAL_HIT_RATIO,0}
+		std::unordered_map<stats_value, int>pokemon_stats{
+			{stats_value::HP,0},
+			{stats_value::ATTACK,0},
+			{stats_value::DEFENCE,0},
+			{stats_value::SPEED,0},
+			{stats_value::SPECIAL,0},
+			{stats_value::CRITICAL_HIT_RATIO,0}
 		};
 	};
 	//the Gen1 member variable
@@ -75,14 +75,14 @@ public:
 		Gen2_Stats();
 		Gen2_Stats(int hp, int attack, int defence, int speed, int special_attack, int special_defence);
 	private:
-		std::unordered_map<Stats::stats_value, int>pokemon_stats{ {
-			Stats::stats_value::HP,0},
-			{Stats::stats_value::ATTACK,0},
-			{Stats::stats_value::DEFENCE,0},
-			{Stats::stats_value::SPEED,0},
-			{Stats::stats_value::SPECIAL_ATTACK,0},
-			{Stats::stats_value::SPECIAL_DEFENCE,0},
-			{Stats::stats_value::CRITICAL_HIT_RATIO,0}
+		std::unordered_map<stats_value, int>pokemon_stats{ {
+			stats_value::HP,0},
+			{stats_value::ATTACK,0},
+			{stats_value::DEFENCE,0},
+			{stats_value::SPEED,0},
+			{stats_value::SPECIAL_ATTACK,0},
+			{stats_value::SPECIAL_DEFENCE,0},
+			{stats_value::CRITICAL_HIT_RATIO,0}
 		};
 	};
 protected:
