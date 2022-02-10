@@ -56,11 +56,9 @@ public:
 			{stats_value::CRITICAL_HIT_RATIO,0}
 		};
 	};
-	//the Gen1 member variable
 protected:
 	Gen1_Stats m_stats;
 public:
-	//constructors
 	Gen1_Pokemon();
 	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats);
 };

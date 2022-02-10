@@ -1,10 +1,12 @@
 #pragma once
 #include "Pokemon.h"
 
-class Battle_Pokemon
+static class Battle_Pokemon
 {
-	std::unordered_map<stats_value, int>battle_stats;
-	status_effect_value current_status_effect=status_effect_value::NORMAL;
-	Battle_Pokemon(std::unordered_map<stats_value,int>);
+private:
+	std::unordered_map<stats_value, int>m_battle_stats;
+	status_effect_value m_current_status_effect=status_effect_value::NORMAL;
+	Battle_Pokemon(Pokemon&);
+	void show_battle_stats();
 };
 

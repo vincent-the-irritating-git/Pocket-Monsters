@@ -6,6 +6,9 @@
 enum class stats_value {
 	HP, ATTACK, DEFENCE, SPEED, SPECIAL, SPECIAL_ATTACK, SPECIAL_DEFENCE, CRITICAL_HIT_RATIO
 };
+//static const std::array<std::string, 8> stat_names;
+std::string get_stats_value_names(stats_value);
+
 
 enum class status_effect_value {
 	NORMAL, PARALYSIS, BURN, POISON, FREEZE, SLEEP
@@ -29,12 +32,11 @@ public:
 private:
 	stats_value m_stats_value=stats_value::ATTACK;
 	int m_stages=0;
-	static const std::array<std::string, 8> stat_names;
 public:
 	Stats_Change(stats_value, int);
 	Stats_Change();
-	std::string get_stats_value_names();
 	int get_stats_stages();
+	std::string get_stats_value();
 };
 
 struct Move {
@@ -58,16 +60,16 @@ struct Attack_Move:public Move {
 };
 
 struct Status_Effect_Attack_Move : public Attack_Move {
-	Status_Effect_Change m_status_effect;
+	Status_Effect_Change m_status_effect_change;
 	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect_Change stats_effect);
 };
 
 struct Stats_Value_Attack_Move : public Attack_Move {
-	Stats_Change m_stats_value;
+	Stats_Change m_stats_change;
 	Stats_Value_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Stats_Change stats_change);
 };
 
 struct Defence_Move :public Move {
-	Stats_Change m_stats_value;
+	Stats_Change m_stats_change;
 	Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Stats_Change status);
 };
