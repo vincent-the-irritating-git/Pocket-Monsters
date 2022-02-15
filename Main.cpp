@@ -30,9 +30,9 @@ int main() {
 	pikachu.define_known_moves(std::array<Move, 4>{tackle, growl, thundershock});
 	pikachu.show_moves();
 
-	Gen1_Pokedex.insert({ bulbasaur.pokemon_name(), bulbasaur });
-	Gen1_Pokedex.insert({ alakazam.pokemon_name(),alakazam });
-	Gen1_Pokedex.insert({ pinsir.pokemon_name(),pinsir });
+	Gen1_Pokedex.insert({ bulbasaur.get_pokemon_name(), bulbasaur });
+	Gen1_Pokedex.insert({ alakazam.get_pokemon_name(),alakazam });
+	Gen1_Pokedex.insert({ pinsir.get_pokemon_name(),pinsir });
 	Move_List.insert({ barrier.m_name,barrier });
 	Move_List.insert({ tackle.m_name,tackle });
 

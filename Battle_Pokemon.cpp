@@ -1,7 +1,12 @@
 #include "Battle_Pokemon.h"
 
-Battle_Pokemon::Battle_Pokemon(Pokemon& pokemon){
+Battle_Pokemon::Battle_Pokemon(Gen1_Pokemon& pokemon){
 	//TODO get pokemon reference's stats
+	
+}
+
+Battle_Pokemon::Battle_Pokemon(Gen2_Pokemon& pokemon){
+
 }
 
 void Battle_Pokemon::show_battle_stats(){

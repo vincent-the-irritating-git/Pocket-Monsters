@@ -23,13 +23,14 @@ protected:
 	Type::Type_Enum m_type = Type::Type_Enum::NONE, m_type2 = Type::Type_Enum::NONE;
 	Evolutions m_evolution;
 	std::vector<Move> m_moveset;
-	std::array<Move, 4>m_known_moves;
+	//TODO this should be in battle pokemon; instead, this should be default moves
+	std::array<Move, 4>m_default_moves;
 public:
 	Pokemon();
 	/*constructor*/
 	Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions);
 	//methods
-	std::string pokemon_name();
+	std::string get_pokemon_name();
 	//for all moves pokemon can learn
 	void define_all_possible_moves(std::vector<Move>);
 	//for setting moves Pokemon knows
@@ -61,6 +62,7 @@ protected:
 public:
 	Gen1_Pokemon();
 	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats);
+	std::unordered_map<stats_value, int>get_stats_map();
 };
 
 //gen2 Pokemon

@@ -19,7 +19,7 @@
 		printf("Name: %s \nType: %s \nType2: %s \n", name.c_str(), Type::get_type_name(type).c_str(), Type::get_type_name(type2).c_str());
 	}
 
-	std::string Pokemon::pokemon_name() {
+	std::string Pokemon::get_pokemon_name() {
 		return m_name;
 	}
 
@@ -28,12 +28,12 @@
 	}
 
 	void Pokemon::define_known_moves(std::array<Move, 4> moves){
-		m_known_moves = moves;
+		m_default_moves = moves;
 	}
 
 	void Pokemon::show_moves() {
 		std::cout << m_name<<":" << std::endl;
-		for (Move m : m_known_moves) {
+		for (Move m : m_default_moves) {
 			std::cout << m.m_name << std::endl;
 		}
 	}
@@ -54,6 +54,9 @@
 	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
 		m_stats = stats;
 		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial: %d\n\n", m_stats.pokemon_stats.at(stats_value::HP), m_stats.pokemon_stats.at(stats_value::ATTACK), m_stats.pokemon_stats.at(stats_value::DEFENCE), m_stats.pokemon_stats.at(stats_value::SPEED), m_stats.pokemon_stats.at(stats_value::SPECIAL));
+	}
+	std::unordered_map<stats_value, int>Gen1_Pokemon::get_stats_map() {
+		return Gen1_Pokemon::m_stats.pokemon_stats;
 	}
 
 	//default stats
