@@ -15,6 +15,6 @@ const std::unordered_map < Type::Type_Enum, std::array<double, 16>>type_defence_
 	{Type::Type_Enum::Normal,NORMAL_DEFENCE}
 };
 //the function to convert the type_enum to a string
-std::string Type::get_type_name(Type_Enum te) {
+std::string Type::get_type_name(Type_Enum& te) {
 	return type_name[static_cast<int>(te)];
 }

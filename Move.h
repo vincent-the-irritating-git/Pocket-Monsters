@@ -6,8 +6,8 @@
 enum class stats_value {
 	HP, ATTACK, DEFENCE, SPEED, SPECIAL, SPECIAL_ATTACK, SPECIAL_DEFENCE, CRITICAL_HIT_RATIO
 };
-//static const std::array<std::string, 8> stat_names;
-std::string get_stats_value_names(stats_value);
+
+std::string get_stats_value_name(stats_value);
 
 
 enum class status_effect_value {
@@ -57,19 +57,23 @@ struct Move {
 struct Attack_Move:public Move {
 	int m_power = 0;
 	Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power);
+	void show_move_values();
 };
 
 struct Status_Effect_Attack_Move : public Attack_Move {
 	Status_Effect_Change m_status_effect_change;
 	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Status_Effect_Change stats_effect);
+	void show_move_values();
 };
 
 struct Stats_Value_Attack_Move : public Attack_Move {
 	Stats_Change m_stats_change;
 	Stats_Value_Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power, Stats_Change stats_change);
+	void show_move_values();
 };
 
 struct Defence_Move :public Move {
 	Stats_Change m_stats_change;
 	Defence_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, Stats_Change status);
+	void show_move_values();
 };

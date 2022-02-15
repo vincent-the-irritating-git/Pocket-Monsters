@@ -20,5 +20,5 @@ struct Type {
 	//The actual names of the types
 	static const std::string type_name[16];
 	//the string converter of the name
-	static std::string get_type_name(Type_Enum te);
+	static std::string get_type_name(Type_Enum& te);
 };

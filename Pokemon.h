@@ -23,7 +23,6 @@ protected:
 	Type::Type_Enum m_type = Type::Type_Enum::NONE, m_type2 = Type::Type_Enum::NONE;
 	Evolutions m_evolution;
 	std::vector<Move> m_moveset;
-	//TODO this should be in battle pokemon; instead, this should be default moves
 	std::array<Move, 4>m_default_moves;
 public:
 	Pokemon();
@@ -34,8 +33,9 @@ public:
 	//for all moves pokemon can learn
 	void define_all_possible_moves(std::vector<Move>);
 	//for setting moves Pokemon knows
-	void define_known_moves(std::array<Move, 4>);
+	void define_default_moves(std::array<Move, 4>);
 	void show_moves();
+	void show_base_stats();
 };
 
 //gen1 Pokemon
@@ -46,7 +46,7 @@ public:
 		friend class Gen1_Pokemon;
 	public:
 		Gen1_Stats();
-		Gen1_Stats(int hp, int attack, int defence, int speed, int special);
+		Gen1_Stats(int hp, int attack, int defence, int special, int speed);
 	private:
 		std::unordered_map<stats_value, int>pokemon_stats{
 			{stats_value::HP,0},
@@ -63,6 +63,7 @@ public:
 	Gen1_Pokemon();
 	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats);
 	std::unordered_map<stats_value, int>get_stats_map();
+	void show_gen1_pokemon_stats();
 };
 
 //gen2 Pokemon
@@ -73,7 +74,7 @@ public:
 		friend class Gen2_Pokemon;
 	public:
 		Gen2_Stats();
-		Gen2_Stats(int hp, int attack, int defence, int speed, int special_attack, int special_defence);
+		Gen2_Stats(int hp, int attack, int defence, int special_attack, int special_defence, int speed);
 	private:
 		std::unordered_map<stats_value, int>pokemon_stats{ {
 			stats_value::HP,0},
@@ -91,4 +92,7 @@ public:
 	//constructors
 	Gen2_Pokemon();
 	Gen2_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen2_Stats stats);
+	//TODO these need doing
+	std::unordered_map<stats_value, int>get_stats_map();
+	void show_gen2_Pokemon_stats();
 };
