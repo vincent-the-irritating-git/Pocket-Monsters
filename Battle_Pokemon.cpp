@@ -1,5 +1,7 @@
 #include "Battle_Pokemon.h"
 
+Battle_Pokemon::Battle_Pokemon() {};
+
 Battle_Pokemon::Battle_Pokemon(Gen1_Pokemon& pokemon){
 	m_battle_stats = pokemon.get_stats_map();
 }
