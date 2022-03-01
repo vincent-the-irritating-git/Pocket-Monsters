@@ -8,8 +8,8 @@
 
 class Pokedex {
 private:
-	std::unordered_map <std::string, Gen1_Pokemon> Gen1_pokemon_definitions_map;
-	std::unordered_map<std::string, Move> Move_definitions_map;
+	std::unordered_map <std::string, Gen1_Pokemon&> Gen1_pokemon_definitions_map;
+	std::unordered_map<std::string, Move&> Move_definitions_map;
 public:
 	Pokedex();
 	void load_moves_into_map();
