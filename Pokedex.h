@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include "Battle_Pokemon.h"
 
-static class Pokedex {
+class Pokedex {
 private:
 	std::unordered_map <std::string, Gen1_Pokemon> Gen1_pokemon_definitions_map;
 	std::unordered_map<std::string, Move> Move_definitions_map;
