@@ -53,5 +53,8 @@
     <ClInclude Include="Battle_Event.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Pokedex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

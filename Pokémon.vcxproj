@@ -152,6 +152,7 @@
   <ItemGroup>
     <ClInclude Include="Battle_Event.h" />
     <ClInclude Include="Battle_Pokemon.h" />
+    <ClInclude Include="Pokedex.h" />
     <ClInclude Include="Move.h" />
     <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Type.h" />

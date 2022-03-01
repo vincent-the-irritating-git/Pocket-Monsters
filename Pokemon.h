@@ -64,6 +64,7 @@ public:
 	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats);
 	std::unordered_map<stats_value, int>get_stats_map();
 	void show_gen1_pokemon_stats();
+	bool operator==(const Gen1_Pokemon&)const;
 };
 
 //gen2 Pokemon

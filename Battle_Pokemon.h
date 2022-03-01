@@ -1,7 +1,7 @@
 #pragma once
 #include "Pokemon.h"
 
-static class Battle_Pokemon
+class Battle_Pokemon
 {
 private:
 	std::unordered_map<stats_value, int>m_battle_stats;

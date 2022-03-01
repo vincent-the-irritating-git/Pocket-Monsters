@@ -20,7 +20,7 @@
 	void Pokemon::show_base_stats() {
 		std::cout<<"Name: " << m_name << std::endl;
 		std::cout << "Type: " << Type::get_type_name(m_type) << std::endl;
-		std::cout << "Type 2 " << Type::get_type_name(m_type2) << std::endl;
+		std::cout << "Type 2: " << Type::get_type_name(m_type2) << std::endl;
 	}
 
 	std::string Pokemon::get_pokemon_name() {
@@ -36,9 +36,9 @@
 	}
 
 	void Pokemon::show_moves() {
-		std::cout << m_name<<":" << std::endl;
-		for (Move m : m_default_moves) {
-			std::cout << m.m_name << std::endl;
+		std::cout <<"Moves known:" << std::endl;
+		for (Move move : m_default_moves) {
+			std::cout << move.m_name << std::endl;
 		}
 	}
 
@@ -62,6 +62,13 @@
 	{
 		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial: %d\n\n", m_stats.pokemon_stats.at(stats_value::HP), m_stats.pokemon_stats.at(stats_value::ATTACK), m_stats.pokemon_stats.at(stats_value::DEFENCE), m_stats.pokemon_stats.at(stats_value::SPEED), m_stats.pokemon_stats.at(stats_value::SPECIAL));
 
+	}
+
+	//TODO make this a pointer
+	bool Gen1_Pokemon::operator==(const Gen1_Pokemon& other)const {
+		if (this == &other)
+			return true;
+		return false;
 	}
 	
 	std::unordered_map<stats_value, int>Gen1_Pokemon::get_stats_map() {
