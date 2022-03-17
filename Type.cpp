@@ -9,6 +9,6 @@ const std::unordered_map < Type::Type_Enum, std::array<double, 16>>type_attack_m
 const std::unordered_map < Type::Type_Enum, std::array<double, 16>>type_defence_matrix{
 	{Type::Type_Enum::Normal,NORMAL_DEFENCE}
 };
-std::string Type::get_type_name(Type_Enum& te) {
+std::string Type::get_type_name(const Type_Enum& te) {
 	return type_name[static_cast<int>(te)];
 }

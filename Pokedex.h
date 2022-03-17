@@ -6,16 +6,13 @@
 #include <unordered_map>
 #include "Battle_Pokemon.h"
 
+//we have a method that loads and returns a map with all the pokemon
+//we use this method to initialise the class variable
+
+
 class Pokedex {
-private:
-	std::unordered_map <std::string, Gen1_Pokemon&> Gen1_pokemon_definitions_map;
-	std::unordered_map<std::string, Move&> Move_definitions_map;
 public:
-	Pokedex();
-	void load_moves_into_map();
-	void load_pokemon_into_map();
-	void load_pokemon_with_default_moves();
-	void list_pokemon();
-	void load_in_all_data();
-	Gen1_Pokemon& get_gen1_pokemon_from_map(std::string);
+	const static std::unordered_map<std::string, Gen1_Pokemon>gen1_Pokemon_map;
+public:
+	const static std::unordered_map<std::string, Gen1_Pokemon>initialise_pokemon_map();
 };

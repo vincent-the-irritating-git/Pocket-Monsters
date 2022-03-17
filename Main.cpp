@@ -6,13 +6,10 @@
 #include "Battle_Pokemon.h"
 #include "Pokedex.h"
 
-
-
 int main() {
-	Pokedex pokedex;
-	pokedex.load_in_all_data();
-	bool b = pokedex.get_gen1_pokemon_from_map("Bulbasaur") == pokedex.get_gen1_pokemon_from_map("Pikachu");
-	bool c = pokedex.get_gen1_pokemon_from_map("Bulbasaur") == pokedex.get_gen1_pokemon_from_map("Bulbasaur");
-	pokedex.get_gen1_pokemon_from_map("Pikachu").show_base_stats();
-	std::cout <<std::boolalpha<< b<<std::endl<<std::boolalpha<<c;
-};
+	//Pokedex::gen1_Pokemon_map.at("Bulbasaur").show_base_stats();
+	//Pokedex::gen1_Pokemon_map.at("Bulbasaur").show_gen1_pokemon_stats();
+	//std::cout<< Pokedex::gen1_Pokemon_map.at("Bulbasaur").get_pokemon_name();
+	Battle_Pokemon bp(Pokedex::gen1_Pokemon_map.at("Bulbasaur"));
+	bp.show_battle_stats();
+}

@@ -6,3 +6,8 @@
 - I'm accepting the wasted memory, instead changed the enum type to have a NONE value, which
 defaults to 1 for both attack and defence.
 -abolished the overloaded constructor; now we have to put NONE for one types' second value
+
+16/03/2022
+-move default moves from pokemon and make it its own map; battle pokemon will house the
+moves and have the default moves loaded in.
+-same with all moves, needs to be moved to another map (giving us 3 maps to make a whole)
