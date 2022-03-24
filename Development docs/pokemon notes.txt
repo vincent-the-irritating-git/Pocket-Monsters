@@ -11,3 +11,8 @@ defaults to 1 for both attack and defence.
 -move default moves from pokemon and make it its own map; battle pokemon will house the
 moves and have the default moves loaded in.
 -same with all moves, needs to be moved to another map (giving us 3 maps to make a whole)
+
+24/03/2022
+-Having difficulty getting the values from the map when doing the speed comparator.
+Need to stop and refersh knowledge of pointers. Test unit is also borked, seems I've
+set it up wrong.
