@@ -106,7 +106,7 @@ void Battle_Event::select_user_pokemon()
 		select_user_pokemon();
 		return;
 	}
-	Gen1_Pokemon pokemon = find_pokemon_from_map(choice);
+	const Gen1_Pokemon& pokemon = find_pokemon_from_map(choice);
 	user = Battle_Pokemon(pokemon);
 }
 

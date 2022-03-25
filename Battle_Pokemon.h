@@ -1,5 +1,6 @@
 #pragma once
 #include "Pokemon.h"
+#include "Pokedex.h"
 
 //we will need two classes, one for each
 class Battle_Pokemon
@@ -12,7 +13,7 @@ class Battle_Pokemon
 	//SHOULD BE PRIVATE
 public:
 	status_effect_value m_current_pokemon_status =status_effect_value::NORMAL;
-	Gen1_Pokemon pokemon_ptr;
+	const Gen1_Pokemon* pokemon_ptr;
 	int attack_modifier = 1;
 	int defence_modifier = 1;
 	int speed_modifier = 1;
@@ -22,7 +23,7 @@ public:
 	double stun_chance = 0;
 public:
 	Battle_Pokemon();
-	Battle_Pokemon(Gen1_Pokemon);
+	Battle_Pokemon(const Gen1_Pokemon&);
 	int modified_attack()const;
 	int modified_defence()const;
 	int modified_speed()const;

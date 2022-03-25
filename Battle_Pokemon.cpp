@@ -5,29 +5,31 @@ Battle_Pokemon::Battle_Pokemon() {
 }
 
 //TODO finish
-Battle_Pokemon::Battle_Pokemon(Gen1_Pokemon pokemon) {
-	pokemon_ptr = pokemon;
-	hp = pokemon_ptr.get_m_stats().at(stats_value::HP);
+//This fails if we do this. we need to pass the pokemon.getName and get
+//it from the map instead
+Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
+	pokemon_ptr = &pokemon;
+	hp = pokemon_ptr->get_m_stats().at(stats_value::HP);
 }
 
 int Battle_Pokemon::modified_attack()const
 {
-	return pokemon_ptr.get_m_stats().at(stats_value::ATTACK) * attack_modifier;
+	return pokemon_ptr->get_m_stats().at(stats_value::ATTACK) * attack_modifier;
 }
 
 int Battle_Pokemon::modified_defence()const
 {
-	return pokemon_ptr.get_m_stats().at(stats_value::DEFENCE) * defence_modifier;
+	return pokemon_ptr->get_m_stats().at(stats_value::DEFENCE) * defence_modifier;
 }
 
 int Battle_Pokemon::modified_speed()const
 {
-	return pokemon_ptr.get_m_stats().at(stats_value::SPEED)* speed_modifier;
+	return pokemon_ptr->get_m_stats().at(stats_value::SPEED)* speed_modifier;
 }
 
 int Battle_Pokemon::modified_special()const
 {
-	return pokemon_ptr.get_m_stats().at(stats_value::SPECIAL)* special_modifier;
+	return pokemon_ptr->get_m_stats().at(stats_value::SPECIAL)* special_modifier;
 }
 
 double Battle_Pokemon::get_stun_chance()
