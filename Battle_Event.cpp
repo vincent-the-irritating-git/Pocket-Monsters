@@ -106,8 +106,8 @@ void Battle_Event::select_user_pokemon()
 		select_user_pokemon();
 		return;
 	}
-	const Gen1_Pokemon& pokemon = find_pokemon_from_map(choice);
-	user = Battle_Pokemon(pokemon);
+	const Gen1_Pokemon* pokemon = find_pokemon_from_map(choice);
+	user = Battle_Pokemon(*pokemon);
 }
 
 bool Battle_Event::is_pokemon_in_map(std::string& choice) {
@@ -122,8 +122,8 @@ bool Battle_Event::is_pokemon_in_map(std::string& choice) {
 	return true;
 }
 
-Gen1_Pokemon Battle_Event::find_pokemon_from_map(std::string& choice) {
-	return Pokedex::gen1_Pokemon_map.at(choice);
+const Gen1_Pokemon* Battle_Event::find_pokemon_from_map(std::string& choice) {
+	return &(Pokedex::gen1_Pokemon_map.at(choice));
 }
 
 void Battle_Event::select_enemy_pokemon()
@@ -135,8 +135,8 @@ void Battle_Event::select_enemy_pokemon()
 		select_enemy_pokemon();
 		return;
 	}
-	Gen1_Pokemon pokemon = find_pokemon_from_map(choice);
-	enemy = Battle_Pokemon(pokemon);
+	const Gen1_Pokemon* pokemon = (find_pokemon_from_map(choice));
+	enemy = Battle_Pokemon(*pokemon);
 }
 
 void Battle_Event::battle() {

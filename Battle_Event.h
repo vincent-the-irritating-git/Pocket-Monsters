@@ -16,7 +16,7 @@ public:
 	void show_turn_order();
 	void start_battle();
 	bool is_pokemon_in_map(std::string&);
-	Gen1_Pokemon find_pokemon_from_map(std::string& choice);
+	const Gen1_Pokemon* find_pokemon_from_map(std::string& choice);
 	bool is_stunned(Battle_Pokemon* bp);
 	bool is_status_effect_a_stun(Battle_Pokemon* bp);
 	bool calculate_if_stunned(Battle_Pokemon* bp);
