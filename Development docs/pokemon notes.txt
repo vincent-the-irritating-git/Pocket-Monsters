@@ -15,4 +15,7 @@ moves and have the default moves loaded in.
 24/03/2022
 -Having difficulty getting the values from the map when doing the speed comparator.
 Need to stop and refersh knowledge of pointers. Test unit is also borked, seems I've
-set it up wrong.
+set it up wrong. the battle pokemon pointers don't have all the stats (but they do point
+to the same memory addess).
+-Turns out, the references to the pokemon in the map are being lost as soon as we exit
+the stack frame of the method. Don't know why. Works if we use objects instead.

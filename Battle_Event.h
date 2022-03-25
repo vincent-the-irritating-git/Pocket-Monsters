@@ -7,10 +7,10 @@
 
 class Battle_Event {
 private:
-	std::array<Battle_Pokemon*,2> turn_order;
-	bool isFainted = false;
-	Battle_Pokemon user;
-	Battle_Pokemon enemy;
+	static std::array<Battle_Pokemon*,2> turn_order;
+	static bool isFainted;
+	static Battle_Pokemon user;
+	static Battle_Pokemon enemy;
 public:
 	//TODO get rid of this one
 	void show_turn_order();

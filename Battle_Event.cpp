@@ -4,6 +4,11 @@ Battle_Event::Battle_Event() {
 
 }
 
+bool Battle_Event::isFainted = false;
+Battle_Pokemon Battle_Event::user;
+Battle_Pokemon Battle_Event::enemy;
+std::array<Battle_Pokemon*, 2> Battle_Event::turn_order;
+
 void Battle_Event::start_battle() {
 	//gen_selection(){};
 // gen_selection will return a map

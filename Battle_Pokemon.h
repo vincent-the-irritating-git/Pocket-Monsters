@@ -8,9 +8,11 @@ class Battle_Pokemon
 	//this will be calculated using both of these and returned in a method, which
 	//is what the damage calculation uses
 {
+	//TODO
+	//SHOULD BE PRIVATE
 public:
 	status_effect_value m_current_pokemon_status =status_effect_value::NORMAL;
-	const Gen1_Pokemon* pokemon_ptr;
+	Gen1_Pokemon pokemon_ptr;
 	int attack_modifier = 1;
 	int defence_modifier = 1;
 	int speed_modifier = 1;
@@ -20,7 +22,7 @@ public:
 	double stun_chance = 0;
 public:
 	Battle_Pokemon();
-	Battle_Pokemon(const Gen1_Pokemon&);
+	Battle_Pokemon(Gen1_Pokemon);
 	int modified_attack()const;
 	int modified_defence()const;
 	int modified_speed()const;

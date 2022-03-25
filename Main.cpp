@@ -8,16 +8,22 @@
 #include "Battle_Event.h"
 
 int main() {
-	Battle_Pokemon b(Pokedex::gen1_Pokemon_map.at("Pikachu"));
+	//Battle_Pokemon b(Pokedex::gen1_Pokemon_map.at("Pikachu"));
 	const Gen1_Pokemon& pikachu = (Pokedex::gen1_Pokemon_map.at("Pikachu"));
 
-	const Gen1_Pokemon* ptr = &(Pokedex::gen1_Pokemon_map.at("Pikachu"));
-	const Gen1_Pokemon* ptr2 = &pikachu;
-	const Gen1_Pokemon* ptr3 = b.pokemon_ptr;
-	std::cout <<"The one in the map: "<< ptr << std::endl; 
-	std::cout <<"The pikachu object: "<< ptr2 << std::endl;
-	std::cout <<"The battle pokemon pointer: "<< ptr3 << std::endl;
+	//const Gen1_Pokemon* ptr = &(Pokedex::gen1_Pokemon_map.at("Pikachu"));
+	//const Gen1_Pokemon* ptr2 = &pikachu;
+	//const Gen1_Pokemon* ptr3 = b.pokemon_ptr;
+	//std::cout <<"The one in the map: "<< ptr << std::endl; 
+	//std::cout <<"The pikachu object: "<< ptr2 << std::endl;
+	//std::cout <<"The battle pokemon pointer: "<< ptr3 << std::endl;
 
-	bool boo = *b.pokemon_ptr == Pokedex::gen1_Pokemon_map.at("Pikachu");
-	std::cout << std::boolalpha << boo<<std::endl;
+	//bool boo = *b.pokemon_ptr == Pokedex::gen1_Pokemon_map.at("Pikachu");
+	//std::cout << std::boolalpha << boo<<std::endl;
+
+	Pokedex::gen1_Pokemon_map;
+	Battle_Event be;
+	be.select_pokemon_to_battle();
+	be.speed_check();
+	be.show_turn_order();
 }
