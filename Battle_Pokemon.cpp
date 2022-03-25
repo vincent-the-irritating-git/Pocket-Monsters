@@ -5,10 +5,8 @@ Battle_Pokemon::Battle_Pokemon() {
 }
 
 //TODO finish
-//This fails if we do this. we need to pass the pokemon.getName and get
-//it from the map instead
 Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
-	pokemon_ptr = &pokemon;
+	pokemon_ptr = &(Pokedex::gen1_Pokemon_map.at(pokemon.get_pokemon_name()));
 	hp = pokemon_ptr->get_m_stats().at(stats_value::HP);
 }
 
