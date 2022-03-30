@@ -19,3 +19,8 @@ set it up wrong. the battle pokemon pointers don't have all the stats (but they 
 to the same memory addess).
 -Turns out, the references to the pokemon in the map are being lost as soon as we exit
 the stack frame of the method. Don't know why. Works if we use objects instead.
+
+25/03/2022
+-Found the source of the problem, it was the battle pokemon constructor, which initialised
+the pokemon_ptr variable with the Gen1_Pokemon& passed in. Now it works by intitialising
+it with the Pokemon object from the map instead.
