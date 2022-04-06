@@ -15,7 +15,7 @@ private:
 public:
 	static void display_moves(Battle_Pokemon* bp);
 	static int select_move(Battle_Pokemon* bp);
-	static void do_move(Battle_Pokemon* bp, const Move* chosen_move, Battle_Pokemon* target);
+	static void do_move(Battle_Pokemon* bp, const Move* chosen_move);
 	static void inflict_damage(Battle_Pokemon* bp, const Attack_Move* move);
 	static const Move* retrieve_move_from_map(Battle_Pokemon* bp, int m);
 	static bool is_valid_move_choice(int choice);
@@ -32,9 +32,9 @@ public:
 	static void speed_check();
 	Battle_Event();
 	static void select_pokemon_to_battle();
-	static void turn(Battle_Pokemon* priority, Battle_Pokemon* target);
-	static void ai_turn(Battle_Pokemon* priority, Battle_Pokemon* target);
-	static void human_turn(Battle_Pokemon* priority, Battle_Pokemon* target);
+	static void turn(Battle_Pokemon* priority);
+	static void ai_turn(Battle_Pokemon* priority);
+	static void human_turn(Battle_Pokemon* priority);
 	static int compare_speeds();
 	static void assign_turn_order(int);
 	static void random_turn_order();

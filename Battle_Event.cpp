@@ -16,8 +16,8 @@ void Battle_Event::start_battle() {
 	select_pokemon_to_battle();
 	while (!isFainted) {
 		speed_check();
-		turn(turn_order[0], turn_order[1]);
-		turn(turn_order[1], turn_order[0]);
+		turn(turn_order[0]);
+		turn(turn_order[1]);
 	}
 }
 
@@ -65,16 +65,16 @@ void Battle_Event::assign_turn_order(int i) {
 		random_turn_order();
 }
 
-void Battle_Event::turn(Battle_Pokemon* bp, Battle_Pokemon* target) {
+void Battle_Event::turn(Battle_Pokemon* bp) {
 	if (bp->get_is_human()) 
-		human_turn(bp, target);
+		human_turn(bp);
 	else
-	ai_turn(bp, target);
+	ai_turn(bp);
 	//display_moves();
 	//select_move();
 }
 
-void Battle_Event::human_turn(Battle_Pokemon* bp, Battle_Pokemon* target) {
+void Battle_Event::human_turn(Battle_Pokemon* bp) {
 	int user_move_choice = -1;
 	const Move* chosen_move = nullptr;
 	display_moves(bp);
@@ -83,7 +83,7 @@ void Battle_Event::human_turn(Battle_Pokemon* bp, Battle_Pokemon* target) {
 	if (is_stunned(bp))
 		return;
 	//break()
-	do_move(bp, chosen_move, target);
+	do_move(bp, chosen_move);
 	//check_fainted();
 }
 
@@ -95,11 +95,11 @@ const Move* Battle_Event::retrieve_move_from_map(Battle_Pokemon* bp, int m) {
 		select_move(bp);
 }
 
-void Battle_Event::ai_turn(Battle_Pokemon* bp, Battle_Pokemon* target) {
+void Battle_Event::ai_turn(Battle_Pokemon* bp) {
 
 }
 
-void Battle_Event::do_move(Battle_Pokemon* bp, const Move* chosen_move, Battle_Pokemon* target) {
+void Battle_Event::do_move(Battle_Pokemon* bp, const Move* chosen_move) {
 	//inflict_damage();
 	//inflict_status_effect();
 	//inflict_stats_change();
