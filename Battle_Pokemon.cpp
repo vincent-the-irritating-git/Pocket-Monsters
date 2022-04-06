@@ -10,6 +10,15 @@ Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
 	hp = pokemon_ptr->get_m_stats().at(stats_value::HP);
 }
 
+std::string Battle_Pokemon::get_battle_pokemon_name()
+{
+	return pokemon_ptr->get_pokemon_name();
+}
+
+void Battle_Pokemon::DEBUG_set_status(const status_effect_value& sv){
+	m_current_pokemon_status = sv;
+}
+
 int Battle_Pokemon::modified_attack()const
 {
 	return pokemon_ptr->get_m_stats().at(stats_value::ATTACK) * attack_modifier;
@@ -49,4 +58,14 @@ void Battle_Pokemon::show_battle_stats()const
 	std::cout << "Special is " << modified_special() << std::endl;
 	std::cout << "Critical hit ratio is " << critical_hit_ratio << std::endl;
 	std::cout << std::endl;
+}
+
+bool Battle_Pokemon::get_is_human() const
+{
+	return is_human;
+}
+
+void Battle_Pokemon::set_ai()
+{
+	is_human = false;
 }

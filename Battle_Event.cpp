@@ -21,9 +21,17 @@ void Battle_Event::start_battle() {
 	}
 }
 
-void Battle_Event::show_turn_order() {
-	for (int x = 0; x < 2; ++x)
-		turn_order[x]->show_battle_stats();
+void Battle_Event::DEBUG_SET_USER(Gen1_Pokemon b){
+	user = Battle_Pokemon(b);
+}
+
+void Battle_Event::DEBUG_SET_ENEMY(Gen1_Pokemon b) {
+	enemy = Battle_Pokemon(b);
+	enemy.set_ai();
+}
+
+std::array<Battle_Pokemon*,2> Battle_Event::DEBUG_get_turn_order() {
+	return turn_order;
 }
 
 void Battle_Event::speed_check() {
@@ -58,12 +66,77 @@ void Battle_Event::assign_turn_order(int i) {
 }
 
 void Battle_Event::turn(Battle_Pokemon* bp) {
+	if (bp->get_is_human()) 
+		human_turn(bp);
+	else
+	ai_turn(bp);
+	//display_moves();
 	//select_move();
-	if (!is_stunned(bp))
-	{
-	}
-		//do_move();
+}
+
+void Battle_Event::human_turn(Battle_Pokemon* bp) {
+	int user_move_choice = -1;
+	const Move* chosen_move = nullptr;
+	display_moves(bp);
+	user_move_choice=select_move(bp);
+	chosen_move = retrieve_move_from_map(bp, user_move_choice);
+	if (is_stunned(bp))
+		return;
+	//break()
+	do_move(bp, chosen_move);
 	//check_fainted();
+}
+
+const Move* Battle_Event::retrieve_move_from_map(Battle_Pokemon* bp, int m) {
+	std::string name = bp->get_battle_pokemon_name();
+	if (!is_NULL_MOVE(Pokedex::gen1_default_movesets.at(name).at(m)))
+		return Pokedex::gen1_default_movesets.at(name).at(m);
+	else
+		select_move(bp);
+}
+
+void Battle_Event::ai_turn(Battle_Pokemon* bp) {
+
+}
+
+void Battle_Event::do_move(Battle_Pokemon* bp, const Move* chosen_move) {
+	//inflict_damage();
+	//inflict_status_effect();
+	//inflict_stats_change();
+}
+
+void Battle_Event::inflict_damage(Battle_Pokemon* bp, const Attack_Move* move) {
+		//int damage = (move->m_power * bp->modified_attack() / defending.defence) / 50 + 2 * critical() * random() * STAB * type * burn;
+}
+
+//TODO we're only couting pointer address
+void Battle_Event::display_moves(Battle_Pokemon* bp) {
+	std::string name = bp->get_battle_pokemon_name();
+	for (int x = 0; x < MAX_MOVES; ++x)
+		std::cout << x+1 << ": " << Pokedex::gen1_default_movesets.at(name).at(x)->m_name << std::endl;
+}
+
+int Battle_Event::select_move(Battle_Pokemon* bp)
+{
+	int choice;
+	//TODO probably needs try catch stuff
+	std::cin >> choice;
+	if(is_valid_move_choice(choice))
+	return choice;
+	else
+	select_move(bp);
+}
+
+bool Battle_Event::is_valid_move_choice(int choice) {
+	std::regex r ("[1-4]+");
+	std::string string_choice = std::to_string(choice);
+	return std::regex_match(string_choice,r);
+}
+
+bool Battle_Event::is_NULL_MOVE(const Move* move) {
+	if (move->m_name == " ")
+		return true;
+	return false;
 }
 
 bool Battle_Event::is_stunned(Battle_Pokemon* bp){
@@ -92,7 +165,6 @@ bool Battle_Event::calculate_if_stunned(Battle_Pokemon* bp) {
 }
 
 void Battle_Event::select_pokemon_to_battle() {
-	//TODO this doesn't seem to work
 	select_user_pokemon();
 	select_enemy_pokemon();
 }
@@ -137,6 +209,7 @@ void Battle_Event::select_enemy_pokemon()
 	}
 	const Gen1_Pokemon* pokemon = (find_pokemon_from_map(choice));
 	enemy = Battle_Pokemon(*pokemon);
+	enemy.set_ai();
 }
 
 void Battle_Event::battle() {

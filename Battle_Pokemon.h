@@ -19,7 +19,10 @@ private:
 	int hp=1;
 	int critical_hit_ratio = 1;
 	double stun_chance = 0;
+	bool is_human = true;
 public:
+	std::string get_battle_pokemon_name();
+	void DEBUG_set_status(const status_effect_value&);
 	Battle_Pokemon();
 	Battle_Pokemon(const Gen1_Pokemon&);
 	int modified_attack()const;
@@ -27,6 +30,8 @@ public:
 	int modified_speed()const;
 	int modified_special()const;
 	void show_battle_stats()const;
+	bool get_is_human() const;
+	void set_ai();
 	double get_stun_chance();
 	status_effect_value get_status_effect();
 
