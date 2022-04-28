@@ -24,3 +24,19 @@ the stack frame of the method. Don't know why. Works if we use objects instead.
 -Found the source of the problem, it was the battle pokemon constructor, which initialised
 the pokemon_ptr variable with the Gen1_Pokemon& passed in. Now it works by intitialising
 it with the Pokemon object from the map instead.
+
+06/04/2022
+-Map of moves doesn't work, it's an unsafe conversion. Can't get move out properly.
+
+26/04/2022
+-Redoing the idea of typematchups with a 3d array, but need to figure out how to do it.
+Thinking use generics and define each Type_Enum as int&, but can't figure out how to
+separate into header and cpp
+
+26/04/2022
+-still don't know why my arrays don't work in header and cpp MUST LOOK
+-256x3 is too big for a linear search. will use maps
+
+27/04/2022
+-hashmaps of pointers seems fucked. hashmaps of hashmaps for doing the type thing is far
+too complicated to read and doesn't work. must try something else.

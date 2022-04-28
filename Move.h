@@ -46,7 +46,7 @@ struct Move {
 	std::string m_name = "";
 	int m_pp = 1;
 	int m_accuracy = 1;
-	Type::Type_Enum m_type = Type::Type_Enum::Normal;
+	Type::Type_Enum m_type = Type::Type_Enum::NORMAL;
 	Move();
 	Move(std::string, int, int, Type::Type_Enum);
 };

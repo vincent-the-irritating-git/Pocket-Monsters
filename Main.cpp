@@ -8,8 +8,14 @@
 #include "Battle_Event.h"
 
 int main() {
-	const Gen1_Pokemon pikachu = Pokedex::gen1_Pokemon_map.at("Pikachu");
-
-	Battle_Pokemon b_pik(pikachu);
-	Battle_Event::display_moves(&b_pik);
+	//Gen1_Pokemon p = Pokedex::gen1_Pokemon_map.at("Pikachu");
+	//Battle_Pokemon bp(p);
+	//Battle_Pokemon* bpp = &bp;
+	//Battle_Event::human_turn(bpp);
+	//const Move* move = &Pokedex::gen1_moves.at("Tackle");
+	//Battle_Event::determine_move_class(move);
+	std::cout << static_cast<int>(Type::Type_Enum::NONE);
+	std::cout << std::endl;
+	std::cout << static_cast<int>(Type::Type_Enum::NORMAL);
+	
 }
