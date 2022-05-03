@@ -10,7 +10,7 @@ class Battle_Pokemon
 	//is what the damage calculation uses
 {
 private:
-	status_effect_value m_current_pokemon_status =status_effect_value::NORMAL;
+	status_and_stats::status_effect_value m_current_pokemon_status = status_and_stats::status_effect_value::NORMAL;
 	const Gen1_Pokemon* pokemon_ptr;
 	int attack_modifier = 1;
 	int defence_modifier = 1;
@@ -22,7 +22,7 @@ private:
 	bool is_human = true;
 public:
 	std::string get_battle_pokemon_name();
-	void DEBUG_set_status(const status_effect_value&);
+	void DEBUG_set_status(const status_and_stats::status_effect_value&);
 	Battle_Pokemon();
 	Battle_Pokemon(const Gen1_Pokemon&);
 	int modified_attack()const;
@@ -33,7 +33,7 @@ public:
 	bool get_is_human() const;
 	void set_ai();
 	double get_stun_chance();
-	status_effect_value get_status_effect();
+	status_and_stats::status_effect_value get_status_effect();
 
 };
 

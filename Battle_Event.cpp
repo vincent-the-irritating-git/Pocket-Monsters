@@ -1,5 +1,7 @@
 #include "Battle_Event.h"
 
+using namespace status_and_stats;
+
 Battle_Event::Battle_Event() {
 
 }

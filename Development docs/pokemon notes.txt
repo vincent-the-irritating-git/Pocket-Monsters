@@ -40,3 +40,21 @@ separate into header and cpp
 27/04/2022
 -hashmaps of pointers seems fucked. hashmaps of hashmaps for doing the type thing is far
 too complicated to read and doesn't work. must try something else.
+
+28/04/2022 
+-turns out I didn't know maps. doing the same without const.
+-my tests don't work now. having to add them manually again
+-the type_enum ain't working in Main, have no value
+
+29/04/2022
+-Move has a load of global stuff I didn't see before. need to put it into structs
+might be the breaking of the tests?
+
+02/05/2022
+-moved the enums into a namespace and did all the subsequent correxions. made all cpp's
+have using namespace status_and_stats. still won't return a value in main.
+
+03/05/2022
+-finally got the no output error fixed- it was because the maps of type matchup
+were in the wrong order in the cpp file, so the master map was putting in an
+uninitialised pointer.

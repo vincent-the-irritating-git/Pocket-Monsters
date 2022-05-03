@@ -1,5 +1,7 @@
 #include "Pokedex.h"
 
+using namespace status_and_stats;
+
 int MAX_MOVES = 4;
 
 const std::unordered_map<std::string, Gen1_Pokemon> Pokedex::initialise_pokemon_map()

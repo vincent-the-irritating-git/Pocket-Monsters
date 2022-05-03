@@ -41,13 +41,13 @@ public:
 		Gen1_Stats();
 		Gen1_Stats(int hp, int attack, int defence, int special, int speed);
 	private:
-		std::unordered_map<stats_value, int>pokemon_stats{
-			{stats_value::HP,0},
-			{stats_value::ATTACK,0},
-			{stats_value::DEFENCE,0},
-			{stats_value::SPEED,0},
-			{stats_value::SPECIAL,0},
-			{stats_value::CRITICAL_HIT_RATIO,0}
+		std::unordered_map<status_and_stats::stats_value, int>pokemon_stats{
+			{status_and_stats::stats_value::HP,0},
+			{status_and_stats::stats_value::ATTACK,0},
+			{status_and_stats::stats_value::DEFENCE,0},
+			{status_and_stats::stats_value::SPEED,0},
+			{status_and_stats::stats_value::SPECIAL,0},
+			{status_and_stats::stats_value::CRITICAL_HIT_RATIO,0}
 		};
 	};
 protected:
@@ -55,7 +55,7 @@ protected:
 public:
 	Gen1_Pokemon();
 	Gen1_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen1_Stats stats);
-	std::unordered_map<stats_value, int>get_m_stats()const;
+	std::unordered_map<status_and_stats::stats_value, int>get_m_stats()const;
 	void show_gen1_pokemon_stats()const;
 	bool operator==(const Gen1_Pokemon&)const;
 };
@@ -70,14 +70,14 @@ public:
 		Gen2_Stats();
 		Gen2_Stats(int hp, int attack, int defence, int special_attack, int special_defence, int speed);
 	private:
-		std::unordered_map<stats_value, int>pokemon_stats{ {
-			stats_value::HP,0},
-			{stats_value::ATTACK,0},
-			{stats_value::DEFENCE,0},
-			{stats_value::SPEED,0},
-			{stats_value::SPECIAL_ATTACK,0},
-			{stats_value::SPECIAL_DEFENCE,0},
-			{stats_value::CRITICAL_HIT_RATIO,0}
+		std::unordered_map<status_and_stats::stats_value, int>pokemon_stats{ 
+			{status_and_stats::stats_value::HP,0},
+			{status_and_stats::stats_value::ATTACK,0},
+			{status_and_stats::stats_value::DEFENCE,0},
+			{status_and_stats::stats_value::SPEED,0},
+			{status_and_stats::stats_value::SPECIAL_ATTACK,0},
+			{status_and_stats::stats_value::SPECIAL_DEFENCE,0},
+			{status_and_stats::stats_value::CRITICAL_HIT_RATIO,0}
 		};
 	};
 protected:
@@ -87,6 +87,6 @@ public:
 	Gen2_Pokemon();
 	Gen2_Pokemon(int index_no, std::string name, Type::Type_Enum type, Type::Type_Enum type2, Evolutions evolutions, Gen2_Stats stats);
 	//TODO these need doing
-	std::unordered_map<stats_value, int>get_stats_map();
+	std::unordered_map<status_and_stats::stats_value, int>get_stats_map();
 	void show_gen2_Pokemon_stats();
 };

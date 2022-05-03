@@ -1,5 +1,7 @@
 #include "Pokemon.h"
 
+using namespace status_and_stats;
+
 	//where the pokemon's evolutions are held and what level they evolve to them at
 	Pokemon::Evolutions::Evolutions(int m_evolution_index_no, int m_evolution_level) :m_evolution_index_no(m_evolution_index_no), m_evolution_level(m_evolution_level) {
 			this->m_evolution_index_no = m_evolution_index_no;

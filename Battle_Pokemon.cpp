@@ -1,5 +1,7 @@
 #include "Battle_Pokemon.h"
 
+using namespace status_and_stats;
+
 Battle_Pokemon::Battle_Pokemon() {
 
 }

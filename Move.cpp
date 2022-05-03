@@ -1,10 +1,12 @@
 #include "Move.h"
 #include <string>
 
+using namespace status_and_stats;
+
 const std::array<std::string, 8> stat_names{ "HP","Attack","Defence","Speed", "Special", "Special Attack", "Special Defence", "Critical Hit Ratio"};
 const std::array<std::string, 6> Status_Effect_Change::effect_names{ "Normal","Paralysis","Burn","Poison","Freeze","Sleep" };
 
-std::string get_stats_value_name(stats_value stats_value) { 
+std::string Stats_Change::get_stats_value_name(stats_value stats_value) { 
 	return stat_names[static_cast<int>(stats_value)];
 }
 
