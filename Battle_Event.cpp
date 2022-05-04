@@ -7,11 +7,13 @@ Battle_Event::Battle_Event() {
 }
 
 bool Battle_Event::isFainted = false;
-Battle_Pokemon Battle_Event::user;
-Battle_Pokemon Battle_Event::ai;
+Battle_Pokemon Battle_Event::user = Battle_Pokemon(Pokedex::gen1_Pokemon_map.at("Missingno"));
+Battle_Pokemon Battle_Event::ai = Battle_Pokemon(Pokedex::gen1_Pokemon_map.at("Missingno"));
 std::shared_ptr<Battle_Pokemon> Battle_Event::current = std::make_shared<Battle_Pokemon>(Battle_Pokemon(Pokedex::gen1_Pokemon_map.at("Missingno")));
 std::shared_ptr<Battle_Pokemon> Battle_Event::opposing = std::make_shared<Battle_Pokemon>(Battle_Pokemon(Pokedex::gen1_Pokemon_map.at("Missingno")));
-std::array<std::shared_ptr<Battle_Pokemon>, 2> Battle_Event::turn_order;
+std::array<std::shared_ptr<Battle_Pokemon>, 2> Battle_Event::turn_order{
+	current, opposing
+};
 
 void Battle_Event::start_battle() {
 	//gen_selection(){};
@@ -25,18 +27,18 @@ void Battle_Event::start_battle() {
 	}
 }
 
-void Battle_Event::DEBUG_SET_USER(Gen1_Pokemon b){
-	user = Battle_Pokemon(b);
-}
+//void Battle_Event::DEBUG_SET_USER(Gen1_Pokemon b){
+//	user = Battle_Pokemon(b);
+//}
+//
+//void Battle_Event::DEBUG_SET_ENEMY(Gen1_Pokemon b) {
+//	ai = Battle_Pokemon(b);
+//	ai.set_ai();
+//}
 
-void Battle_Event::DEBUG_SET_ENEMY(Gen1_Pokemon b) {
-	ai = Battle_Pokemon(b);
-	ai.set_ai();
-}
-
-std::array<std::shared_ptr<Battle_Pokemon>,2> Battle_Event::DEBUG_get_turn_order() {
-	return turn_order;
-}
+//std::array<std::shared_ptr<Battle_Pokemon>,2> Battle_Event::DEBUG_get_turn_order() {
+//	return turn_order;
+//}
 
 void Battle_Event::speed_check() {
 	assign_turn_order(compare_speeds());
@@ -69,6 +71,7 @@ void Battle_Event::assign_turn_order(int i) {
 		random_turn_order();
 }
 
+//TODO this should be two functions
 void Battle_Event::turn(std::shared_ptr<Battle_Pokemon> current, std::shared_ptr<Battle_Pokemon> opposing) {
 	Battle_Event::current = current;
 	Battle_Event::opposing = opposing;

@@ -2,10 +2,6 @@
 
 using namespace status_and_stats;
 
-Battle_Pokemon::Battle_Pokemon() {
-
-}
-
 //TODO finish
 Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
 	pokemon_ptr = &(Pokedex::gen1_Pokemon_map.at(pokemon.get_pokemon_name()));
