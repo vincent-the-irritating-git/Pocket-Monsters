@@ -19,7 +19,8 @@ int main() {
 	//Battle_Event::human_turn(bpp);
 	//const Move* move = &Pokedex::gen1_moves.at("Tackle");
 	//Battle_Event::determine_move_class(move);
-
+	std::shared_ptr<int>x;
+	int y=5;
 	std::cout << static_cast<int>(Type::Type_Enum::DRAGON);
 	std::cout << std::endl;
 	std::cout << static_cast<int>(Type::Type_Enum::NORMAL);
@@ -28,5 +29,6 @@ int main() {
 	std::cout << std::endl;
 	std::cout << static_cast<int>(stats_value::ATTACK);
 	std::cout << std::endl;
-	
+
+	return 0;
 }

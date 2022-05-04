@@ -25,9 +25,6 @@ public:
 };
 
 struct Stats_Change {
-public:
-	static std::string get_stats_value_name(status_and_stats::stats_value);
-
 private:
 	status_and_stats::stats_value m_stats_value= status_and_stats::stats_value::ATTACK;
 	int m_stages=0;
@@ -36,6 +33,7 @@ public:
 	Stats_Change();
 	int get_stats_stages();
 	std::string get_stats_value();
+	static std::string get_stats_value_name(status_and_stats::stats_value);
 };
 
 struct Move {
@@ -48,6 +46,8 @@ struct Move {
 	Type::Type_Enum m_type = Type::Type_Enum::NORMAL;
 	Move();
 	Move(std::string, int, int, Type::Type_Enum);
+	//elon is a twat
+	bool operator==(const Move&)const;
 };
 
 /*we must remember moves like dig and fury swipes*/

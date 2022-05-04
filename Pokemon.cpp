@@ -51,7 +51,6 @@ using namespace status_and_stats;
 
 	}
 
-	//TODO make this a pointer
 	bool Gen1_Pokemon::operator==(const Gen1_Pokemon& other)const {
 		if (this == &other)
 			return true;

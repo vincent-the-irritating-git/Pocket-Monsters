@@ -58,3 +58,4 @@ have using namespace status_and_stats. still won't return a value in main.
 -finally got the no output error fixed- it was because the maps of type matchup
 were in the wrong order in the cpp file, so the master map was putting in an
 uninitialised pointer.
+-workaround for the tests is to include both h and cpp

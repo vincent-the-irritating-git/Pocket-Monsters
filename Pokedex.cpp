@@ -7,11 +7,13 @@ int MAX_MOVES = 4;
 const std::unordered_map<std::string, Gen1_Pokemon> Pokedex::initialise_pokemon_map()
 {
 	std::unordered_map<std::string, Gen1_Pokemon> m;
+	Gen1_Pokemon missingno(-1, "Missingo", Type::Type_Enum::NONE, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(0, 0, 0, 0, 0));
 	Gen1_Pokemon bulbasaur(1, "Bulbasaur", Type::Type_Enum::GRASS, Type::Type_Enum::POISON, Pokemon::Evolutions(2, 16), Gen1_Pokemon::Gen1_Stats(45, 49, 49, 65, 45));
 	Gen1_Pokemon pikachu(25, "Pikachu", Type::Type_Enum::ELECTRIC, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(35, 55, 30, 50, 90));
 	Gen1_Pokemon alakazam(65, "Alakazam", Type::Type_Enum::PSYCHIC, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(55, 50, 45, 135, 120));
 	Gen1_Pokemon pinsir(127, "Pinsir", Type::Type_Enum::BUG, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(65, 125, 100, 55, 85));
 	Gen1_Pokemon moltres(146, "Moltres", Type::Type_Enum::FIRE, Type::Type_Enum::FLYING, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(90, 100, 90, 125, 90));
+	m.insert({ missingno.get_pokemon_name(), missingno });
 	m.insert({ bulbasaur.get_pokemon_name(),bulbasaur });
 	m.insert({ pikachu.get_pokemon_name(),pikachu });
 	m.insert({ moltres.get_pokemon_name(),moltres });
@@ -43,7 +45,15 @@ const std::unordered_map<std::string, std::array<const Move*, 4>> Pokedex::initi
 		&(Pokedex::gen1_moves.at(" ")),
 		&(Pokedex::gen1_moves.at(" "))
 	};
+
+	std::array<const Move*, 4>missingo_moves{
+		&(Pokedex::gen1_moves.at(" ")),
+		&(Pokedex::gen1_moves.at(" ")),
+		&(Pokedex::gen1_moves.at(" ")),
+		&(Pokedex::gen1_moves.at(" "))
+	};
 	m.insert({ "Pikachu", pikachu_moves });
+	m.insert({ "Missingno", missingo_moves });
 	return m;
 }
 

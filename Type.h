@@ -19,7 +19,5 @@ struct Type {
 	static std::unordered_map < std::shared_ptr<Type::Type_Enum>, std::unordered_map<std::shared_ptr<Type::Type_Enum>, double> > ATTACK_MATCHUPS;
 	static std::unordered_map < std::shared_ptr<Type::Type_Enum>, double > NONE_ATTACK_MATCHUPS;
 
-	//The actual names of the types
-	//the string converter of the name
 	static std::string get_type_name(const Type_Enum& te);
 };

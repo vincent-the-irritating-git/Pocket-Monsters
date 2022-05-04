@@ -104,3 +104,10 @@ void Defence_Move::show_move_values() {
 	std::cout << "Stages changed: " << m_stats_change.get_stats_stages() << std::endl;
 	std::cout << std::endl;
 }
+
+bool Move::operator==(const Move& other)const {
+	if (this == &other)
+		return true;
+	else
+		return false;
+}
