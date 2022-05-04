@@ -23,6 +23,7 @@ private:
 public:
 	std::string get_battle_pokemon_name();
 	void DEBUG_set_status(const status_and_stats::status_effect_value&);
+	Battle_Pokemon();
 	Battle_Pokemon(const Gen1_Pokemon&);
 	int modified_attack()const;
 	int modified_defence()const;

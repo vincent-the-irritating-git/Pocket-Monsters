@@ -8,13 +8,10 @@
 
 static class Battle_Event {
 private:
-	//make this smart pointers
-	static std::array<std::shared_ptr<Battle_Pokemon>,2> turn_order;
+	static std::array<Battle_Pokemon*, 2> turn_order;
 	static bool isFainted;
-	//make these two smart pointers
-	static std::shared_ptr<Battle_Pokemon> current;
-	static std::shared_ptr<Battle_Pokemon> opposing;
-	//
+	static Battle_Pokemon* current;
+	static Battle_Pokemon* opposing;
 	static Battle_Pokemon user;
 	static Battle_Pokemon ai;
 public:
@@ -40,7 +37,7 @@ public:
 	static void speed_check();
 	Battle_Event();
 	static void select_pokemon_to_battle();
-	static void turn(std::shared_ptr<Battle_Pokemon> current, std::shared_ptr<Battle_Pokemon> opposing);
+	static void turn(Battle_Pokemon* current, Battle_Pokemon* opposing);
 	static void ai_turn(Battle_Pokemon& current);
 	static void human_turn(Battle_Pokemon& current);
 	static int compare_speeds();

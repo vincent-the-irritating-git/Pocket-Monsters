@@ -59,3 +59,10 @@ have using namespace status_and_stats. still won't return a value in main.
 were in the wrong order in the cpp file, so the master map was putting in an
 uninitialised pointer.
 -workaround for the tests is to include both h and cpp
+
+04/05/2022
+-fixed a problem with the pokemon_test (it had another name and was cluttering the files)
+-made move's == operator work.
+-tried to clean up Battle_Event and replace raw pointers but caused chaos.
+willl need to pull 2.7 and start again.
+-I also want to get rid of the default converter for Battle_Pokemon
