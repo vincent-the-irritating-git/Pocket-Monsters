@@ -88,7 +88,7 @@ void Battle_Event::human_turn(Battle_Pokemon& bp) {
 	user_move_choice = select_move(bp);
 	const Move& chosen_move = retrieve_move_from_map(bp, user_move_choice);
 	if (is_stunned(bp))
-		//stun message
+		//stun message(status_effect)
 		return;
 	//break()
 	determine_move_class(chosen_move);
@@ -192,6 +192,28 @@ bool Battle_Event::calculate_if_stunned(Battle_Pokemon& bp) {
 	if (chance <= bp.get_stun_chance())
 		return true;
 	return false;
+}
+
+void Battle_Event::show_stun_message(Battle_Pokemon& bp) {
+	//this is an array of function pointers, where the number in the array corresponds to the number of the status enum value
+	//so the freeze_message() is at number 4, as this is the value of FREEZE
+	//the nullptrs because the corresponding enum is not a stun. normal is done for debug purposes
+	std::string(*stun_message_pointer[])(Battle_Pokemon&) = {&normal_stun_message, &paralysis_stun_message, nullptr, nullptr, &freeze_stun_message, &sleep_stun_message};
+	std::cout<<stun_message_pointer[static_cast<int>(bp.get_status_effect())](bp);
+}
+
+std::string Battle_Event::normal_stun_message(Battle_Pokemon& current) {
+	return current.get_battle_pokemon_name() + " " + "is fine!\n";
+}
+
+std::string Battle_Event::freeze_stun_message(Battle_Pokemon& current) {
+	return current.get_battle_pokemon_name()+" "+"is frozen!\n";
+}
+std::string Battle_Event::paralysis_stun_message(Battle_Pokemon& current) {
+	return current.get_battle_pokemon_name() + " " + "is paralysed!\n";
+}
+std::string Battle_Event::sleep_stun_message(Battle_Pokemon& current) {
+	return current.get_battle_pokemon_name() + " " + "is sleeping!\n";
 }
 
 void Battle_Event::select_pokemon_to_battle() {

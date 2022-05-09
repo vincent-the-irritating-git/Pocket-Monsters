@@ -33,6 +33,11 @@ public:
 	static bool is_stunned(Battle_Pokemon& current);
 	static bool is_status_effect_a_stun(Battle_Pokemon& current);
 	static bool calculate_if_stunned(Battle_Pokemon& current);
+	static void show_stun_message(Battle_Pokemon& bp);
+	static std::string normal_stun_message(Battle_Pokemon& current);
+	static std::string freeze_stun_message(Battle_Pokemon& current);
+	static std::string paralysis_stun_message(Battle_Pokemon& current);
+	static std::string sleep_stun_message(Battle_Pokemon& current);
 	static void speed_check();
 	Battle_Event();
 	static void select_pokemon_to_battle();

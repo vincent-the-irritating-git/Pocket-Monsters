@@ -9,7 +9,14 @@
 
 using namespace status_and_stats;
 
+
+
 int main() {
-	
+	Battle_Pokemon bp(Pokedex::get_gen1_pokemon("Pikachu")); 
+	Battle_Event::show_stun_message(bp);
+	bp.DEBUG_set_status(status_effect_value::FREEZE);
+	Battle_Event::show_stun_message(bp);
+	bp.DEBUG_set_status(status_effect_value::PARALYSIS);
+	Battle_Event::show_stun_message(bp);
 	return 0;
 }
