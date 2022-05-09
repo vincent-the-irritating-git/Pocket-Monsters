@@ -15,9 +15,6 @@ private:
 	static Battle_Pokemon user;
 	static Battle_Pokemon ai;
 public:
-	static void determine_move_class(const Move& move);
-	static void determine_attack_move(Battle_Pokemon& bp, const Move& move);
-	static void do_defence_move(Battle_Pokemon& bp, const Move& move);
 	static void display_moves(Battle_Pokemon& current);
 	static int select_move(Battle_Pokemon& current);
 	static void do_move(Battle_Pokemon& current, const Move& chosen_move);
@@ -33,7 +30,8 @@ public:
 	static bool is_stunned(Battle_Pokemon& current);
 	static bool is_status_effect_a_stun(Battle_Pokemon& current);
 	static bool calculate_if_stunned(Battle_Pokemon& current);
-	static void show_stun_message(Battle_Pokemon& bp);
+	static std::string get_stun_message(Battle_Pokemon& current);
+	static void show_stun_message(std::string);
 	static std::string normal_stun_message(Battle_Pokemon& current);
 	static std::string freeze_stun_message(Battle_Pokemon& current);
 	static std::string paralysis_stun_message(Battle_Pokemon& current);

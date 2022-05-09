@@ -87,11 +87,12 @@ void Battle_Event::human_turn(Battle_Pokemon& bp) {
 	display_moves(bp);
 	user_move_choice = select_move(bp);
 	const Move& chosen_move = retrieve_move_from_map(bp, user_move_choice);
-	if (is_stunned(bp))
-		//stun message(status_effect)
+	if (is_stunned(bp)) {
+		show_stun_message(get_stun_message(bp));
 		return;
+	}
 	//break()
-	determine_move_class(chosen_move);
+	//determine_move_class(chosen_move);
 	//check_fainted();
 }
 
@@ -109,28 +110,8 @@ void Battle_Event::ai_turn(Battle_Pokemon& bp) {
 }
 
 void Battle_Event::do_move(Battle_Pokemon& bp, const Move& chosen_move) {
-	determine_move_class(chosen_move);
 	//inflict_status_effect();
 	//inflict_stats_change();
-}
-
-void Battle_Event::determine_move_class(const Move& move) {
-	//if (move.is_target_enemy)
-	//	move = Pokedex::gen1_moves.at("Growl");
-}
-
-//void Battle_Event::determine_attack_move(Battle_Pokemon* bp, const Move* move) {
-//	if (move->is_stats_changing)
-//		return_stats_changing_move();
-//	else if(move->is_status_inflicting)
-//	else
-//		////
-//}
-//
-//Stats_Value_Attack_Move Battle_Event::return_stats_changing_move()
-
-void Battle_Event::do_defence_move(Battle_Pokemon& bp, const Move& move) {
-
 }
 
 void Battle_Event::inflict_damage(Battle_Pokemon& bp, const Attack_Move& move) {
@@ -194,18 +175,21 @@ bool Battle_Event::calculate_if_stunned(Battle_Pokemon& bp) {
 	return false;
 }
 
-void Battle_Event::show_stun_message(Battle_Pokemon& bp) {
+void Battle_Event::show_stun_message(std::string message) {
+	std::cout << message;
+}
+
+std::string Battle_Event::get_stun_message(Battle_Pokemon& bp) {
 	//this is an array of function pointers, where the number in the array corresponds to the number of the status enum value
 	//so the freeze_message() is at number 4, as this is the value of FREEZE
 	//the nullptrs because the corresponding enum is not a stun. normal is done for debug purposes
-	std::string(*stun_message_pointer[])(Battle_Pokemon&) = {&normal_stun_message, &paralysis_stun_message, nullptr, nullptr, &freeze_stun_message, &sleep_stun_message};
-	std::cout<<stun_message_pointer[static_cast<int>(bp.get_status_effect())](bp);
+	std::string(*stun_message_pointer[])(Battle_Pokemon&) = { &normal_stun_message, &paralysis_stun_message, nullptr, nullptr, &freeze_stun_message, &sleep_stun_message };
+	return stun_message_pointer[static_cast<int>(bp.get_status_effect())](bp);
 }
 
 std::string Battle_Event::normal_stun_message(Battle_Pokemon& current) {
 	return current.get_battle_pokemon_name() + " " + "is fine!\n";
 }
-
 std::string Battle_Event::freeze_stun_message(Battle_Pokemon& current) {
 	return current.get_battle_pokemon_name()+" "+"is frozen!\n";
 }
