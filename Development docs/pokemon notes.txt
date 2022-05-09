@@ -71,3 +71,11 @@ stuff is still raw pointers
 
 05/05/2022
 -implemented actul map retrieval functions rather than just calling the map manually
+
+09/05/2022
+-redone the is_stun stuff to make it a bit cleaner. implemented a way for a status
+specific message to display.
+-think the move of maps idea is broken: it's just an unsafe conversion, can't get out
+the original data that went in.
+-the problem is we have upcasted all of out subclass moves in the map; need to 
+rejig it and store pointers instead. this will mean variables needed off the stack.

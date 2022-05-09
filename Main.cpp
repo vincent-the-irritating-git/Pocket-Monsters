@@ -12,11 +12,11 @@ using namespace status_and_stats;
 
 
 int main() {
-	Battle_Pokemon bp(Pokedex::get_gen1_pokemon("Pikachu")); 
-	Battle_Event::show_stun_message(Battle_Event::get_stun_message(bp));
-	bp.DEBUG_set_status(status_effect_value::FREEZE);
-	Battle_Event::show_stun_message(Battle_Event::get_stun_message(bp));
-	bp.DEBUG_set_status(status_effect_value::PARALYSIS);
-	Battle_Event::show_stun_message(Battle_Event::get_stun_message(bp));
+	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::Type_Enum::ELECTRIC, 40, Status_Effect_Change(status_effect_value::PARALYSIS, 10));
+	Move* m = &thundershock;
+	thundershock.show_move_values();
+	m->show_move_values();
+	const Move* mm = &(Pokedex::get_gen1_moves("Thunder Shock"));
+	
 	return 0;
 }

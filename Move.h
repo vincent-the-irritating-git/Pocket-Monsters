@@ -46,9 +46,9 @@ struct Move {
 	Type::Type_Enum m_type = Type::Type_Enum::NORMAL;
 	Move();
 	Move(std::string, int, int, Type::Type_Enum);
-	//elon is a twat
+	//elon musk is a twat
 	bool operator==(const Move&)const;
-	virtual void show_move_values() {};
+	virtual void show_move_values() { std::cout << "Default"<<std::endl; };
 };
 
 /*we must remember moves like dig and fury swipes*/
