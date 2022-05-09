@@ -46,6 +46,7 @@ Move::Move(std::string name, int pp, int accuracy, Type::Type_Enum type) : m_nam
 	m_pp = pp;
 	m_accuracy = accuracy;
 	m_type = type;
+
 }
 
 Attack_Move::Attack_Move(std::string name, int pp, int accuracy, Type::Type_Enum type, int power):Move(name,pp,accuracy,type),m_power(power){

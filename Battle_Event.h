@@ -27,10 +27,9 @@ public:
 	static bool is_NULL_MOVE(const Move& move);
 	static void DEBUG_SET_USER(Gen1_Pokemon);
 	static void DEBUG_SET_ENEMY(Gen1_Pokemon);
-	static std::array<std::shared_ptr<Battle_Pokemon>, 2> DEBUG_get_turn_order();
+	static std::array<Battle_Pokemon*, 2> DEBUG_get_turn_order();
 	static void start_battle();
-	static bool is_pokemon_in_map(std::string&);
-	static const Gen1_Pokemon& find_pokemon_from_map(std::string& choice);
+	//this should be in BP
 	static bool is_stunned(Battle_Pokemon& current);
 	static bool is_status_effect_a_stun(Battle_Pokemon& current);
 	static bool calculate_if_stunned(Battle_Pokemon& current);

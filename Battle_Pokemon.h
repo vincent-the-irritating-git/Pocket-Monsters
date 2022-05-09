@@ -11,7 +11,7 @@ class Battle_Pokemon
 {
 private:
 	status_and_stats::status_effect_value m_current_pokemon_status = status_and_stats::status_effect_value::NORMAL;
-	const Gen1_Pokemon* pokemon_ptr;
+	const Gen1_Pokemon* pokemon_ptr=nullptr;
 	int attack_modifier = 1;
 	int defence_modifier = 1;
 	int speed_modifier = 1;

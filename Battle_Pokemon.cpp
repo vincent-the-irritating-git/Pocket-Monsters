@@ -8,7 +8,7 @@ Battle_Pokemon::Battle_Pokemon() {
 
 //TODO finish
 Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
-	pokemon_ptr = &(Pokedex::gen1_Pokemon_map.at(pokemon.get_pokemon_name()));
+	pokemon_ptr = &(Pokedex::get_gen1_pokemon(pokemon.get_pokemon_name()));
 	hp = pokemon_ptr->get_m_stats().at(stats_value::HP);
 }
 

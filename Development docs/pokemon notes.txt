@@ -66,3 +66,8 @@ uninitialised pointer.
 -tried to clean up Battle_Event and replace raw pointers but caused chaos.
 willl need to pull 2.7 and start again.
 -I also want to get rid of the default converter for Battle_Pokemon
+-done a compromise version now, where most methods use references, but the turn order
+stuff is still raw pointers
+
+05/05/2022
+-implemented actul map retrieval functions rather than just calling the map manually

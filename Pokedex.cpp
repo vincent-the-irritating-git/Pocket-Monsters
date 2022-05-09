@@ -1,13 +1,16 @@
 #include "Pokedex.h"
 
 using namespace status_and_stats;
+using namespace Pokedex_constants;
 
-int MAX_MOVES = 4;
+const std::string Pokedex_constants::MISSINGNO = "Missingno";
+const std::string Pokedex_constants::NULL_MOVE = " ";
+const int Pokedex_constants::MAX_MOVES = 4;
 
 const std::unordered_map<std::string, Gen1_Pokemon> Pokedex::initialise_pokemon_map()
 {
 	std::unordered_map<std::string, Gen1_Pokemon> m;
-	Gen1_Pokemon missingno(-1, "Missingo", Type::Type_Enum::NONE, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(0, 0, 0, 0, 0));
+	Gen1_Pokemon missingno(-1, "Missingno", Type::Type_Enum::NONE, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(0, 0, 0, 0, 0));
 	Gen1_Pokemon bulbasaur(1, "Bulbasaur", Type::Type_Enum::GRASS, Type::Type_Enum::POISON, Pokemon::Evolutions(2, 16), Gen1_Pokemon::Gen1_Stats(45, 49, 49, 65, 45));
 	Gen1_Pokemon pikachu(25, "Pikachu", Type::Type_Enum::ELECTRIC, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(35, 55, 30, 50, 90));
 	Gen1_Pokemon alakazam(65, "Alakazam", Type::Type_Enum::PSYCHIC, Type::Type_Enum::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(55, 50, 45, 135, 120));
@@ -36,9 +39,9 @@ const std::unordered_map<std::string, Move> Pokedex::initialise_gen1_moves()
 	return m;
 }
 
-const std::unordered_map<std::string, std::array<const Move*, 4>> Pokedex::initialise_gen1_default_movesets()
+const std::unordered_map<std::string, const std::array<const Move*, 4>> Pokedex::initialise_gen1_default_movesets()
 {
-	std::unordered_map<std::string, std::array<const Move*, 4>>m;
+	std::unordered_map<std::string, const std::array<const Move*, 4>>m;
 	std::array<const Move*, 4>pikachu_moves{
 		&(Pokedex::gen1_moves.at("Tackle")),
 		&(Pokedex::gen1_moves.at("Thunder Shock")),
@@ -59,4 +62,72 @@ const std::unordered_map<std::string, std::array<const Move*, 4>> Pokedex::initi
 
 const std::unordered_map<std::string, Gen1_Pokemon> Pokedex::gen1_Pokemon_map{ Pokedex::initialise_pokemon_map() };
 const std::unordered_map<std::string, Move> Pokedex::gen1_moves{ Pokedex::initialise_gen1_moves() };
-const std::unordered_map < std::string, std::array<const Move*, 4>>Pokedex::gen1_default_movesets {Pokedex::initialise_gen1_default_movesets()};
+const std::unordered_map < std::string, const std::array<const Move*, 4>>Pokedex::gen1_default_movesets {Pokedex::initialise_gen1_default_movesets()};
+
+const Gen1_Pokemon& Pokedex::get_gen1_pokemon(std::string name) {
+	try {
+		return Pokedex::gen1_Pokemon_map.at(name);
+	}
+	catch(std::exception e){
+		std::cout << e.what() << std::endl;
+		std::cout << "No such pokemon found.";
+	}
+	return Pokedex::gen1_Pokemon_map.at(MISSINGNO);
+}
+
+const Move& Pokedex::get_gen1_moves(std::string name)
+{
+	try {
+		return Pokedex::gen1_moves.at(name);
+	}
+	catch (std::exception e) {
+		std::cout << e.what() << std::endl;
+		std::cout << "No such move found.";
+	}
+	return Pokedex::gen1_moves.at(NULL_MOVE);
+}
+
+const std::array<const Move*, 4>& Pokedex::get_gen1_default_movesets(std::string name)
+{
+	try {
+		return Pokedex::gen1_default_movesets.at(name);
+	}
+	catch (std::exception e) {
+		std::cout << e.what() << std::endl;
+		std::cout << "No such moveset found.";
+	}
+	return Pokedex::gen1_default_movesets.at(MISSINGNO);
+}
+
+bool Pokedex::is_pokemon_in_map(std::string name)
+{
+	try {
+		Pokedex::gen1_Pokemon_map.at(name);
+		return true;
+	}
+	catch (std::exception e) {
+		return false;
+	}
+}
+
+bool Pokedex::is_move_in_map(std::string name)
+{
+	try {
+		Pokedex::gen1_moves.at(name);
+		return true;
+	}
+	catch (std::exception e) {
+		return false;
+	}
+}
+
+bool Pokedex::is_default_moveset_in_map(std::string name)
+{
+	try {
+		Pokedex::gen1_default_movesets.at(name);
+		return true;
+	}
+	catch (std::exception e) {
+		return false;
+	}
+}

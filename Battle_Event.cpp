@@ -1,6 +1,7 @@
 #include "Battle_Event.h"
 
 using namespace status_and_stats;
+using namespace Pokedex_constants;
 
 Battle_Event::Battle_Event() {
 
@@ -25,18 +26,18 @@ void Battle_Event::start_battle() {
 	}
 }
 
-//void Battle_Event::DEBUG_SET_USER(Gen1_Pokemon b){
-//	user = Battle_Pokemon(b);
-//}
-//
-//void Battle_Event::DEBUG_SET_ENEMY(Gen1_Pokemon b) {
-//	ai = Battle_Pokemon(b);
-//	ai.set_ai();
-//}
+void Battle_Event::DEBUG_SET_USER(Gen1_Pokemon b){
+	user = Battle_Pokemon(b);
+}
 
-//std::array<std::shared_ptr<Battle_Pokemon>,2> Battle_Event::DEBUG_get_turn_order() {
-//	return turn_order;
-//}
+void Battle_Event::DEBUG_SET_ENEMY(Gen1_Pokemon b) {
+	ai = Battle_Pokemon(b);
+	ai.set_ai();
+}
+
+std::array<Battle_Pokemon*,2> Battle_Event::DEBUG_get_turn_order() {
+	return turn_order;
+}
 
 void Battle_Event::speed_check() {
 	assign_turn_order(compare_speeds());
@@ -87,6 +88,7 @@ void Battle_Event::human_turn(Battle_Pokemon& bp) {
 	user_move_choice = select_move(bp);
 	const Move& chosen_move = retrieve_move_from_map(bp, user_move_choice);
 	if (is_stunned(bp))
+		//stun message
 		return;
 	//break()
 	determine_move_class(chosen_move);
@@ -95,9 +97,9 @@ void Battle_Event::human_turn(Battle_Pokemon& bp) {
 
 const Move& Battle_Event::retrieve_move_from_map(Battle_Pokemon& bp, int m) {
 	std::string name = bp.get_battle_pokemon_name();
-	const Move& move = *(Pokedex::gen1_default_movesets.at(name).at(m));
+	const Move& move = *(Pokedex::get_gen1_default_movesets(name).at(m));
 	if (!is_NULL_MOVE(move))
-		return *(Pokedex::gen1_default_movesets.at(name).at(m));
+		return *(Pokedex::get_gen1_default_movesets(name).at(m));
 	else
 		select_move(bp);
 }
@@ -140,7 +142,7 @@ void Battle_Event::display_moves(Battle_Pokemon& bp) {
 	std::string name = bp.get_battle_pokemon_name();
 	const int MAKE_ARRRAY_HUMAN_READABLE = 1;
 	for (int x = 0; x < MAX_MOVES; ++x)
-		std::cout << x + MAKE_ARRRAY_HUMAN_READABLE << ": " << Pokedex::gen1_default_movesets.at(name).at(x)->m_name << std::endl;
+		std::cout << x + MAKE_ARRRAY_HUMAN_READABLE << ": " << Pokedex::get_gen1_default_movesets(name).at(x)->m_name << std::endl;
 }
 
 int Battle_Event::select_move(Battle_Pokemon& bp)
@@ -202,28 +204,12 @@ void Battle_Event::select_user_pokemon()
 	std::cout << "Select user's pokemon: ";
 	std::string choice;
 	std::cin >> choice;
-	if (!is_pokemon_in_map(choice)) {
+	if (!Pokedex::is_pokemon_in_map(choice)) {
 		select_user_pokemon();
 		return;
 	}
-	const Gen1_Pokemon& pokemon = find_pokemon_from_map(choice);
+	const Gen1_Pokemon& pokemon = Pokedex::get_gen1_pokemon(choice);
 	user = Battle_Pokemon(pokemon);
-}
-
-bool Battle_Event::is_pokemon_in_map(std::string& choice) {
-	try {
-		Pokedex::gen1_Pokemon_map.at(choice);
-	}
-	catch (std::exception e) {
-		std::cout << std::endl;
-		std::cout << "Pokemon does not exist. Please select another: ";
-		return false;
-	}
-	return true;
-}
-
-const Gen1_Pokemon& Battle_Event::find_pokemon_from_map(std::string& choice) {
-	return Pokedex::gen1_Pokemon_map.at(choice);
 }
 
 void Battle_Event::select_enemy_pokemon()
@@ -231,11 +217,11 @@ void Battle_Event::select_enemy_pokemon()
 	std::cout << "Select enemy's pokemon: ";
 	std::string choice;
 	std::cin >> choice;
-	if (!is_pokemon_in_map(choice)) {
+	if (!Pokedex::is_pokemon_in_map(choice)) {
 		select_enemy_pokemon();
 		return;
 	}
-	const Gen1_Pokemon pokemon = (find_pokemon_from_map(choice));
+	const Gen1_Pokemon pokemon = (Pokedex::get_gen1_pokemon(choice));
 	ai = Battle_Pokemon(pokemon);
 	ai.set_ai();
 }
