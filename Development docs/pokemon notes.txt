@@ -79,3 +79,8 @@ specific message to display.
 the original data that went in.
 -the problem is we have upcasted all of out subclass moves in the map; need to 
 rejig it and store pointers instead. this will mean variables needed off the stack.
+-have put the actual moves in a namespace in Pokedex.cpp; need now to do shared pointers
+
+12/05/2022
+-rejigging the map to contain shared_ptr<Move> instead of Move. now we no longer have to
+instantiate Moves at all, so we can give it a pure virtual function.

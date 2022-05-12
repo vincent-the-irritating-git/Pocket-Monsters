@@ -6,7 +6,13 @@ Battle_Pokemon::Battle_Pokemon() {
 
 }
 
-//TODO finish
+Battle_Pokemon::~Battle_Pokemon()
+{
+	//TODO makes test fail
+	//delete pokemon_ptr;
+}
+
+//TODO finish copying all stats in
 Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
 	pokemon_ptr = &(Pokedex::get_gen1_pokemon(pokemon.get_pokemon_name()));
 	hp = pokemon_ptr->get_m_stats().at(stats_value::HP);
