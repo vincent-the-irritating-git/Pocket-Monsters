@@ -141,18 +141,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="Move.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Pokedex.cpp" />
     <ClCompile Include="Type.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Battle_Event.h" />
-    <ClInclude Include="Battle_Pokemon.h" />
-    <ClInclude Include="Pokedex.h" />
-    <ClInclude Include="Move.h" />
-    <ClInclude Include="Pokemon.h" />
     <ClInclude Include="Type.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
