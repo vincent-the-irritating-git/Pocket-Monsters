@@ -13,8 +13,10 @@ struct Type {
 
 	const static std::array<std::string, Type::NUMBER_OF_TYPES> type_name;
 
-	//static std::shared_ptr<Type::Type_Enum>TYPE_POINTER;
-	static std::shared_ptr<Type::Type_Enum>NONE_TYPE_POINTER;
+struct Effectiveness {
+	float m_effectiveness;
+	Effectiveness(float f);
+};
 
 	static std::unordered_map < std::shared_ptr<Type::Type_Enum>, std::unordered_map<std::shared_ptr<Type::Type_Enum>, double> > ATTACK_MATCHUPS;
 	static std::unordered_map < std::shared_ptr<Type::Type_Enum>, double > NONE_ATTACK_MATCHUPS;
