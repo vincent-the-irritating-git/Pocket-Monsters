@@ -11,7 +11,7 @@ using namespace status_and_stats;
 
 	Pokemon::Pokemon() {};
 	/*constructor*/
-	Pokemon::Pokemon(int index_no, std::string name, std::shared_ptr<Type> type, std::shared_ptr<Type> type2, Evolutions evolutions) :m_index_no(index_no), m_name(name), m_type(type), m_type2(type2), m_evolution(evolutions){
+	Pokemon::Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions) :m_index_no(index_no), m_name(name), m_type(type), m_type2(type2), m_evolution(evolutions){
 		this->m_index_no = index_no;
 		this->m_name = name;
 		this->m_type = type;
@@ -21,8 +21,8 @@ using namespace status_and_stats;
 
 	void Pokemon::show_base_stats() const{
 		std::cout<<"Name: " << m_name << std::endl;
-		std::cout << "Type: " << Type::get_type_name(m_type->get_type()) << std::endl;
-		std::cout << "Type 2: " << Type::get_type_name(m_type2->get_type()) << std::endl;
+		std::cout << "Type: " << Type_Data::get_type_name(m_type->get_type()) << std::endl;
+		std::cout << "Type 2: " << Type_Data::get_type_name(m_type2->get_type()) << std::endl;
 	}
 
 	std::string Pokemon::get_pokemon_name() const{
@@ -42,7 +42,7 @@ using namespace status_and_stats;
 	//default pokemon
 	Gen1_Pokemon::Gen1_Pokemon() {};
 	//gen1 constructor
-	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, std::shared_ptr<Type> type, std::shared_ptr<Type> type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
+	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
 		m_stats = stats;
 	}
 	void Gen1_Pokemon::show_gen1_pokemon_stats()const
@@ -77,6 +77,6 @@ using namespace status_and_stats;
 	//default pokemon
 	Gen2_Pokemon::Gen2_Pokemon() {};
 	//gen2 constructor
-	Gen2_Pokemon::Gen2_Pokemon(int index_no, std::string name, std::shared_ptr<Type> type, std::shared_ptr<Type> type2, Evolutions evolutions, Gen2_Stats stats) :Pokemon(index_no, name, type, type2, evolutions),m_stats(stats) {
+	Gen2_Pokemon::Gen2_Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions, Gen2_Stats stats) :Pokemon(index_no, name, type, type2, evolutions),m_stats(stats) {
 		m_stats = stats;
 	}

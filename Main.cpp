@@ -17,7 +17,7 @@
 //	return mm.at(s);
 //}
 int main() {
-	
-	std::cout<<types::BUG.get_type_name()<<std::endl;
+	std::cout << Type::BUG->get_type_name()<<std::endl;
+	std::cout << Type::NONE->get_type_name();
 	return 0;
 }
