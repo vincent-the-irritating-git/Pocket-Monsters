@@ -21,8 +21,8 @@ using namespace status_and_stats;
 
 	void Pokemon::show_base_stats() const{
 		std::cout<<"Name: " << m_name << std::endl;
-		std::cout << "Type: " << Type_Data::get_type_name(m_type->get_type()) << std::endl;
-		std::cout << "Type 2: " << Type_Data::get_type_name(m_type2->get_type()) << std::endl;
+		//std::cout << "Type: " << m_type.get()->get_type_name() << std::endl;
+		//std::cout << "Type 2: " << m_type2.get()->get_type_name() << std::endl;
 	}
 
 	std::string Pokemon::get_pokemon_name() const{

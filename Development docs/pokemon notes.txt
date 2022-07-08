@@ -84,3 +84,9 @@ rejig it and store pointers instead. this will mean variables needed off the sta
 12/05/2022
 -rejigging the map to contain shared_ptr<Move> instead of Move. now we no longer have to
 instantiate Moves at all, so we can give it a pure virtual function.
+
+07/06/2022
+-added output overload to the type_enum. Moved the name maps into type_properties in .h
+	so it's accessible. need to split up types namespace into distinct types
+	(e.g bug_type) as it will get too big otherwise. started to add the matchups to the
+	type_data class. have added attack so far and it seems to work.

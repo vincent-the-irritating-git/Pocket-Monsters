@@ -2,22 +2,16 @@
 #include <iostream>
 #include <unordered_map>
 
-
-
-//	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::Type_Enum::ELECTRIC, 40, Status_Effect_Change(status_effect_value::PARALYSIS, 10));
-//	Defence_Move defence_curl("Defence Curl", 40, 100, Type::Type_Enum::NORMAL, Stats_Change(status_and_stats::stats_value::DEFENCE, 1));
-//	Move* m = &thundershock;
-//
-//	std::unordered_map<std::string,std::shared_ptr<Move>>mm{
-//		{thundershock.m_name, std::make_shared<Status_Effect_Attack_Move>(thundershock)},
-//		{defence_curl.m_name, std::make_shared<Defence_Move>(defence_curl)}
-//	};
-//
-//std::shared_ptr<Move>get_move(std::string s) {
-//	return mm.at(s);
-//}
 int main() {
-	std::cout << Type::BUG->get_type_name()<<std::endl;
-	std::cout << Type::NONE->get_type_name();
+	std::cout << Type::BUG->get_type_name() << std::endl;
+	std::cout << Type::NONE->get_type_name() << std::endl;
+	for (auto x : Type::BUG->get_attack_matchups_map()) {
+		std::cout << x.first<<", "<<*x.second;
+		std::cout << std::endl;
+	}
+	for (auto x : Type::BUG->get_defence_matchups_map()) {
+		std::cout << x.first << ", " << *x.second;
+		std::cout << std::endl;
+	}
 	return 0;
 }

@@ -14,16 +14,26 @@ namespace type_properties {
 		PHYSICAL, SPECIAL
 	};
 
+	static std::unordered_map<type_properties::Type_Enum, std::string>type_names{
+	{type_properties::Type_Enum::BUG, "BUG"},
+	{type_properties::Type_Enum::NONE, "NONE"},
+	{type_properties::Type_Enum::ELECTRIC, "ELECTRIC" }
+	};
+
+	extern std::ostream& operator << (std::ostream& out, const type_properties::Type_Enum& te);
 }
 
 class Type_Data {
 private:
 	type_properties::Classification m_classification;
 	type_properties::Type_Enum m_type;
-	//std::unordered_map<type_properties::Type_Enum, Effectiveness>m_ATTACK_MATCHUPS;
-	//std::unordered_map<type_properties::Type_Enum, Effectiveness>m_DEFENCE_MATCHUPS;
+	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>m_ATTACK_MATCHUPS;
+	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>m_DEFENCE_MATCHUPS;
 public:
 	Type_Data(type_properties::Type_Enum, type_properties::Classification);
+	Type_Data(type_properties::Type_Enum, type_properties::Classification, std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>, std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>);
+	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>get_attack_matchups_map();
+	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>get_defence_matchups_map();
 	type_properties::Type_Enum get_type()const;
 	type_properties::Classification get_classification()const;
 	std::string get_type_name() const;
