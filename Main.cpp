@@ -1,17 +1,11 @@
 #include "Type.h"
 #include <iostream>
 #include <unordered_map>
+#include "Pokemon.h"
+#include "Pokemon_Pokedex.h"
 
 int main() {
-	std::cout << Type::BUG->get_type_name() << std::endl;
-	std::cout << Type::NONE->get_type_name() << std::endl;
-	for (auto x : Type::BUG->get_attack_matchups_map()) {
-		std::cout << x.first<<", "<<*x.second;
-		std::cout << std::endl;
-	}
-	for (auto x : Type::BUG->get_defence_matchups_map()) {
-		std::cout << x.first << ", " << *x.second;
-		std::cout << std::endl;
-	}
-	return 0;
+	Gen1_Pokemon yosser(1, "Yosser", Type::BUG, Type::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(1, 2, 3, 4, 5));
+	Gen1_Pokemon pinsir = Pokemon_Pokedex::get_gen1_pokemon("Pinsir");
+	pinsir.show_base_stats();
 }

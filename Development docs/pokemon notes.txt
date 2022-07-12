@@ -90,3 +90,9 @@ instantiate Moves at all, so we can give it a pure virtual function.
 	so it's accessible. need to split up types namespace into distinct types
 	(e.g bug_type) as it will get too big otherwise. started to add the matchups to the
 	type_data class. have added attack so far and it seems to work.
+
+12/07/2022
+-separated the pokedex class into two for pokemon and moves. took the pokemon definitions
+	and put them into their own namespace. for some reason, I got a null pointer
+	runtime error before I separated the definitions from the initialise method, but
+	now it's gone. no idea why.

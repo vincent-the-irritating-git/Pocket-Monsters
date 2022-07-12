@@ -20,7 +20,7 @@ public:
 protected:
 	int m_index_no = -1;
 	std::string m_name = "";
-	std::shared_ptr<Type_Data> m_type = std::make_shared<Type_Data>(type_properties::Type_Enum::NONE), m_type2 = std::make_shared<Type_Data>(type_properties::Type_Enum::NONE);
+	std::shared_ptr<Type_Data> m_type = Type::NONE, m_type2 = Type::NONE;
 	Evolutions m_evolution;
 public:
 	Pokemon();

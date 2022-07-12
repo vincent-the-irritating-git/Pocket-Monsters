@@ -1,6 +1,5 @@
 #pragma once
 #include "Pokemon.h"
-#include "Pokedex.h"
 
 //we will need two classes, one for each
 class Battle_Pokemon
