@@ -5,6 +5,17 @@
 	std::shared_ptr<float> Effectiveness::NEUTRAL = std::make_shared<float>(1);
 	std::shared_ptr<float> Effectiveness::SUPER_EFFECTIVE = std::make_shared<float>(2);
 
+namespace normal_type {
+		std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>NORMAL_ATTACKING_MAP{
+	{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
+	{type_properties::Type_Enum::BUG, Effectiveness::NEUTRAL}
+		};
+		std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>NORMAL_DEFENDING_MAP{
+			{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
+			{type_properties::Type_Enum::BUG, Effectiveness::NEUTRAL}
+		};
+		Type_Data NORMAL(type_properties::Type_Enum::NORMAL, type_properties::Classification::PHYSICAL, NORMAL_ATTACKING_MAP, NORMAL_DEFENDING_MAP);
+	}
 namespace bug_type {
 	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>BUG_ATTACKING_MAP{
 		{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
@@ -27,9 +38,18 @@ namespace electric_type {
 	};
 	Type_Data ELECTRIC(type_properties::Type_Enum::ELECTRIC, type_properties::Classification::SPECIAL, ELECTRIC_ATTACKING_MAP, ELECTRIC_DEFENDING_MAP);
 }
+namespace none_type {
+	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>NONE_ATTACKING_MAP{
+	{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
+	{type_properties::Type_Enum::BUG, Effectiveness::NEUTRAL}
+	};
+	std::unordered_map<type_properties::Type_Enum, std::shared_ptr<float>>NONE_DEFENDING_MAP{
+		{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
+		{type_properties::Type_Enum::BUG, Effectiveness::NEUTRAL}
+	};
+	Type_Data NONE(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL, NONE_ATTACKING_MAP, NONE_DEFENDING_MAP);
+}
 namespace types {
-	Type_Data NONE(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL);
-	Type_Data NORMAL(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL);
 	Type_Data FIRE(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL);
 	Type_Data GHOST(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL);
 	Type_Data PSYCHIC(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL);
@@ -44,8 +64,10 @@ namespace types {
 	Type_Data ICE(type_properties::Type_Enum::NONE, type_properties::Classification::SPECIAL);
 }
 
+std::shared_ptr<Type_Data>Type::ELECTRIC = std::make_shared<Type_Data>(electric_type::ELECTRIC);
+std::shared_ptr<Type_Data>Type::NORMAL = std::make_shared<Type_Data>(normal_type::NORMAL);
 std::shared_ptr<Type_Data>Type::BUG = std::make_shared<Type_Data>(bug_type::BUG);
-std::shared_ptr<Type_Data>Type::NONE = std::make_shared<Type_Data>(types::NONE);
+std::shared_ptr<Type_Data>Type::NONE = std::make_shared<Type_Data>(none_type::NONE);
 
 std::ostream& type_properties::operator << (std::ostream& out, const type_properties::Type_Enum& te)
 {

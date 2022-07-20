@@ -142,15 +142,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Pokemon_Pokedex.cpp" />
     <ClCompile Include="Pokemon.cpp" />
-    <ClCompile Include="Stats_n_Status.cpp" />
+    <ClCompile Include="Pokemon_Pokedex.cpp" />
     <ClCompile Include="Type.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Pokemon_Pokedex.h" />
     <ClInclude Include="Pokemon.h" />
-    <ClInclude Include="Stats_n_Status.h" />
+    <ClInclude Include="Pokemon_Pokedex.h" />
     <ClInclude Include="Type.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

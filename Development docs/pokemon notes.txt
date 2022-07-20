@@ -96,3 +96,7 @@ instantiate Moves at all, so we can give it a pure virtual function.
 	and put them into their own namespace. for some reason, I got a null pointer
 	runtime error before I separated the definitions from the initialise method, but
 	now it's gone. no idea why.
+
+18/07/2022 
+-The null pointer error is back. For some reason, the pokemon in pokemon_definitions aren't
+being initialised with types.

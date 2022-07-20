@@ -19,6 +19,13 @@ using namespace status_and_stats;
 		this->m_evolution = evolutions;
 	}
 
+	//default pokemon
+	Gen1_Pokemon::Gen1_Pokemon() {};
+	//gen1 constructor
+	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
+		m_stats = stats;
+	}
+
 	void Pokemon::show_base_stats() const{
 		std::cout<<"Name: " << m_name << std::endl;
 		std::cout << "Type: " << m_type.get()->get_type_name() << std::endl;
@@ -39,12 +46,7 @@ using namespace status_and_stats;
 		Gen1_Stats::pokemon_stats.at(stats_value::SPECIAL) = special;
 		Gen1_Stats::pokemon_stats.at(stats_value::SPEED) = speed;
 	}
-	//default pokemon
-	Gen1_Pokemon::Gen1_Pokemon() {};
-	//gen1 constructor
-	Gen1_Pokemon::Gen1_Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions, Gen1_Stats stats) : Pokemon(index_no, name, type, type2, evolutions), m_stats(stats) {
-		m_stats = stats;
-	}
+
 	void Gen1_Pokemon::show_gen1_pokemon_stats()const
 	{
 		printf("HP: %d\nAttack: %d\nDefence: %d\nSpeed: %d\nSpecial: %d\n\n", m_stats.pokemon_stats.at(stats_value::HP), m_stats.pokemon_stats.at(stats_value::ATTACK), m_stats.pokemon_stats.at(stats_value::DEFENCE), m_stats.pokemon_stats.at(stats_value::SPEED), m_stats.pokemon_stats.at(stats_value::SPECIAL));

@@ -40,10 +40,12 @@ public:
 	bool operator==(std::shared_ptr<Type_Data>t);
 };
 
-class Type {
+class Type{
 public:
 	static std::shared_ptr<Type_Data>BUG;
 	static std::shared_ptr<Type_Data>NONE;
+	static std::shared_ptr<Type_Data>NORMAL;
+	static std::shared_ptr<Type_Data>ELECTRIC;
 };
 
 struct Effectiveness {
