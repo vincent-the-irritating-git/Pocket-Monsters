@@ -100,3 +100,7 @@ instantiate Moves at all, so we can give it a pure virtual function.
 18/07/2022 
 -The null pointer error is back. For some reason, the pokemon in pokemon_definitions aren't
 being initialised with types.
+
+20/07/2022
+-it would appear that the shared_ptr is not thread safe and causing it. I have proved the 
+error is not consistently reproducable.

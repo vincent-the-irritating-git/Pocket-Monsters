@@ -20,12 +20,13 @@ public:
 protected:
 	int m_index_no = -1;
 	std::string m_name = "";
-	std::shared_ptr<Type_Data> m_type = Type::NONE, m_type2 = Type::NONE;
+	Type_Data* m_type = Type::NONE;
+	Type_Data* m_type2 = Type::NONE;
 	Evolutions m_evolution;
 public:
 	Pokemon();
 	/*constructor*/
-	Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions);
+	Pokemon(int index_no, std::string name, Type_Data* type, Type_Data* type2, Evolutions evolutions);
 	//methods
 	std::string get_pokemon_name() const;
 	void show_base_stats() const;
@@ -54,7 +55,7 @@ protected:
 	Gen1_Stats m_stats;
 public:
 	Gen1_Pokemon();
-	Gen1_Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions, Gen1_Stats stats);
+	Gen1_Pokemon(int index_no, std::string name, Type_Data* type, Type_Data* type2, Evolutions evolutions, Gen1_Stats stats);
 	std::unordered_map<status_and_stats::stats_value, int>get_m_stats()const;
 	void show_gen1_pokemon_stats()const;
 	bool operator==(const Gen1_Pokemon&)const;
@@ -85,7 +86,7 @@ protected:
 public:
 	//constructors
 	Gen2_Pokemon();
-	Gen2_Pokemon(int index_no, std::string name, std::shared_ptr<Type_Data> type, std::shared_ptr<Type_Data> type2, Evolutions evolutions, Gen2_Stats stats);
+	Gen2_Pokemon(int index_no, std::string name, Type_Data* type, Type_Data* type2, Evolutions evolutions, Gen2_Stats stats);
 	//TODO these need doing
 	std::unordered_map<status_and_stats::stats_value, int>get_stats_map();
 	void show_gen2_Pokemon_stats();

@@ -13,7 +13,6 @@ namespace Pokemon_Pokedex_constants {
 static class Pokemon_Pokedex {
 public:
 	const static std::unordered_map<std::string, Gen1_Pokemon>gen1_Pokemon_map;
-	static std::array<std::string, 1>al;
 public:
 	const static std::unordered_map<std::string, Gen1_Pokemon>initialise_pokemon_map();
 	static const Gen1_Pokemon& get_gen1_pokemon(std::string name);

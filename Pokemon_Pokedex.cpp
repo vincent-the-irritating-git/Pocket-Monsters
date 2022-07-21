@@ -4,12 +4,6 @@ using namespace status_and_stats;
 using namespace Pokemon_Pokedex_constants;
 
 const std::string Pokemon_Pokedex_constants::MISSINGNO = "Missingno";
-namespace arthur{
-	std::string murray = Type::BUG.get()->get_type_name();
-}
-std::array<std::string, 1>Pokemon_Pokedex::al{
-	arthur::murray
-};
 
 namespace pokemon_definitions {
 	Gen1_Pokemon missingno(-1, "Missingno", Type::NONE, Type::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(0, 0, 0, 0, 0));
