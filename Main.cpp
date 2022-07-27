@@ -8,4 +8,5 @@ int main() {
 	Gen1_Pokemon yosser(1, "Yosser", Type::BUG, Type::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(1, 2, 3, 4, 5));
 	Gen1_Pokemon def = Pokemon_Pokedex::get_gen1_pokemon("neil");
 	def.show_base_stats();
+	std::cout << "BUG vs NONE is " << Type::BUG->get_matchup_value(type_properties::Type_Enum::NONE)->get_effectiveness()<<", which is "<< Type::BUG->get_matchup_value(type_properties::Type_Enum::NONE)->get_name();
 }

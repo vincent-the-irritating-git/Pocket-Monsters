@@ -3,9 +3,7 @@
 #include <unordered_map>
 #include <array>
 
-namespace {
 	namespace type_properties {
-
 		static enum class Type_Enum
 		{
 			NONE, NORMAL, FIGHTING, FLYING, POISON, GROUND, ROCK, BUG, GHOST, FIRE, WATER, GRASS, ELECTRIC, PSYCHIC, ICE, DRAGON
@@ -24,23 +22,41 @@ namespace {
 		extern bool is_Classification_physical(type_properties::Classification tc);
 		extern std::ostream& operator << (std::ostream& out, const type_properties::Type_Enum& te);
 	}
-}
+
+class Effectiveness_Data {
+private:
+	std::string m_name;
+	float m_effectiveness;
+public:
+	Effectiveness_Data(std::string name, float effectiveness);
+	std::string get_name();
+	float get_effectiveness();
+	std::ostream& operator<<(std::ostream&);
+};
+
+namespace Effectiveness {
+	extern Effectiveness_Data* UNEFFECTIVE;
+	extern Effectiveness_Data* NOT_VERY_EFFECTIVE;
+	extern Effectiveness_Data* NEUTRAL;
+	extern Effectiveness_Data* SUPER_EFFECTIVE;
+};
 
 class Type_Data {
 private:
 	type_properties::Classification m_classification;
 	type_properties::Type_Enum m_type;
-	std::unordered_map<type_properties::Type_Enum, float*>m_ATTACK_MATCHUPS;
-	std::unordered_map<type_properties::Type_Enum, float*>m_DEFENCE_MATCHUPS;
+	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>m_ATTACK_MATCHUPS;
+	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>m_DEFENCE_MATCHUPS;
 public:
 	Type_Data(type_properties::Type_Enum, type_properties::Classification);
-	Type_Data(type_properties::Type_Enum, type_properties::Classification, std::unordered_map<type_properties::Type_Enum, float*>, std::unordered_map<type_properties::Type_Enum, float*>);
-	std::unordered_map<type_properties::Type_Enum, float*>get_attack_matchups_map();
-	std::unordered_map<type_properties::Type_Enum, float*>get_defence_matchups_map();
+	Type_Data(type_properties::Type_Enum, type_properties::Classification, std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>, std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>);
+	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>get_attack_matchups_map();
+	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>get_defence_matchups_map();
 	type_properties::Type_Enum get_type()const;
 	type_properties::Classification get_classification()const;
 	std::string get_type_name() const;
 	bool operator==(std::shared_ptr<Type_Data>t);
+	Effectiveness_Data* get_matchup_value(type_properties::Type_Enum defending_type);
 };
 
 namespace Type{
@@ -48,11 +64,4 @@ namespace Type{
 	extern Type_Data* NONE;
 	extern Type_Data* NORMAL;
 	extern Type_Data* ELECTRIC;
-};
-
-struct Effectiveness {
-	static float* UNEFFECTIVE;
-	static float* NOT_VERY_EFFECTIVE;
-	static float* NEUTRAL;
-	static float* SUPER_EFFECTIVE;
 };

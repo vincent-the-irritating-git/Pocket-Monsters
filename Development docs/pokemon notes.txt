@@ -102,5 +102,16 @@ instantiate Moves at all, so we can give it a pure virtual function.
 being initialised with types.
 
 20/07/2022
--it would appear that the shared_ptr is not thread safe and causing it. I have proved the 
+-it would appear that the shared_ptr is not thread safe(?) and causing it. I have proved the 
 error is not consistently reproducable.
+
+21/07/2022
+-removed all shared_ptrs, as it seems from my new understanding that they are to be used
+with heap objects not stack (I assume that they were being deleted hence why it showed as
+empty in debug mode). reverted to raw pointers and now it works again.
+-fixed the unit test linker error-- turns out the path to the obj file was wrong, so I
+had to change it manually in properties.
+
+27/07/2022
+-made effectiveness a class like type
+-implemented a function to get thr type matchup value for the types
