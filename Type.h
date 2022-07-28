@@ -55,7 +55,7 @@ public:
 	type_properties::Type_Enum get_type()const;
 	type_properties::Classification get_classification()const;
 	std::string get_type_name() const;
-	bool operator==(std::shared_ptr<Type_Data>t);
+	bool operator==(Type_Data* t);
 	Effectiveness_Data* get_matchup_value(type_properties::Type_Enum defending_type);
 };
 

@@ -128,9 +128,9 @@ std::string Type_Data::get_type_name()const
 		}
 }
 
-bool Type_Data::operator==(std::shared_ptr<Type_Data>t)
+bool Type_Data::operator==(Type_Data* t)
 {
-	if (t.get() == this)
+	if (t == this)
 		return true;
 	return false;
 }
