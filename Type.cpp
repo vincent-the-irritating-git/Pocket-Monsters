@@ -5,7 +5,7 @@ namespace {
 		Effectiveness_Data UNEFFECTIVE("UNEFFECTIVE", 0.00f);
 		Effectiveness_Data NOT_VERY_EFFECTIVE("NOT VERY EFFECTIVE", 0.5f);
 		Effectiveness_Data NEUTRAL("NEUTRAL", 1.00f);
-		Effectiveness_Data SUPER_EFFECTIVE("SUPER EFFECTIVENESS", 2.00f);
+		Effectiveness_Data SUPER_EFFECTIVE("SUPER EFFECTIVE", 2.00f);
 	}
 }
 
@@ -128,7 +128,7 @@ std::string Type_Data::get_type_name()const
 		}
 }
 
-bool Type_Data::operator==(Type_Data* t)
+bool Type_Data::operator==(Type_Data* t) const
 {
 	if (t == this)
 		return true;
@@ -161,8 +161,8 @@ float Effectiveness_Data::get_effectiveness()
 	return m_effectiveness;
 }
 
-std::ostream& Effectiveness_Data::operator<<(std::ostream& out)
+std::ostream& operator<<(std::ostream& out, const Effectiveness_Data& ed)
 {
-	out << this->m_name;
+	out << ed.m_name;
 	return out;
 }

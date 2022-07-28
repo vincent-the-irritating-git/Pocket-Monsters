@@ -31,7 +31,7 @@ public:
 	Effectiveness_Data(std::string name, float effectiveness);
 	std::string get_name();
 	float get_effectiveness();
-	std::ostream& operator<<(std::ostream&);
+	friend std::ostream& operator<<(std::ostream& out, const Effectiveness_Data& ed);
 };
 
 namespace Effectiveness {
@@ -55,7 +55,7 @@ public:
 	type_properties::Type_Enum get_type()const;
 	type_properties::Classification get_classification()const;
 	std::string get_type_name() const;
-	bool operator==(Type_Data* t);
+	bool operator==(Type_Data* t) const;
 	Effectiveness_Data* get_matchup_value(type_properties::Type_Enum defending_type);
 };
 
