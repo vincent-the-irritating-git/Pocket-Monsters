@@ -115,3 +115,9 @@ had to change it manually in properties.
 27/07/2022
 -made effectiveness a class like type
 -implemented a function to get thr type matchup value for the types
+
+16/08/2022
+-fixed move and move_pokedex with pointers and added them to the solution
+-I don't think we need to have defending maps for types, because all we need is the
+	corresponding attack type defined.
+-can't get the tests to work, getting an error aboout x86 instead of x64

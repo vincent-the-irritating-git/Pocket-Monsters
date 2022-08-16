@@ -29,6 +29,8 @@ public:
 	Pokemon(int index_no, std::string name, Type_Data* type, Type_Data* type2, Evolutions evolutions);
 	//methods
 	std::string get_pokemon_name() const;
+	Type_Data* get_type1() const;
+	Type_Data* get_type2() const;
 	void show_base_stats() const;
 };
 

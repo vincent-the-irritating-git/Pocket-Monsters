@@ -1,9 +1,8 @@
 #include "Pokemon_Pokedex.h"
+#include "Constants.h"
 
 using namespace status_and_stats;
 using namespace Pokemon_Pokedex_constants;
-
-const std::string Pokemon_Pokedex_constants::MISSINGNO = "Missingno";
 
 namespace pokemon_definitions {
 	Gen1_Pokemon missingno(-1, "Missingno", Type::NONE, Type::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(0, 0, 0, 0, 0));

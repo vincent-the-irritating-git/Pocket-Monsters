@@ -29,7 +29,8 @@ namespace {
 	namespace electric_type {
 		std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>ELECTRIC_ATTACKING_MAP{
 		{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
-		{type_properties::Type_Enum::BUG, Effectiveness::NEUTRAL}
+		{type_properties::Type_Enum::BUG, Effectiveness::NEUTRAL},
+			{type_properties::Type_Enum::ELECTRIC, Effectiveness::NOT_VERY_EFFECTIVE}
 		};
 		std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>ELECTRIC_DEFENDING_MAP{
 			{type_properties::Type_Enum::NONE, Effectiveness::NEUTRAL},
@@ -143,7 +144,12 @@ static bool type_properties::is_Classification_physical(type_properties::Classif
 
 Effectiveness_Data* Type_Data::get_matchup_value(type_properties::Type_Enum defending_type)
 {
-	return this->get_attack_matchups_map().at(defending_type);
+	try {
+		return this->get_attack_matchups_map().at(defending_type);
+	}
+	catch (std::exception e) {
+		std::cout <<"No type matchup found!"<<std::endl<< e.what()<<std::endl;
+	}
 }
 
 Effectiveness_Data::Effectiveness_Data(std::string name, float effectiveness) :m_name(name), m_effectiveness(effectiveness) {

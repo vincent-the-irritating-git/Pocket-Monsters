@@ -36,6 +36,16 @@ using namespace status_and_stats;
 		return m_name;
 	}
 
+	Type_Data* Pokemon::get_type1()const
+	{
+		return m_type;
+	}
+
+	Type_Data* Pokemon::get_type2()const
+	{
+		return m_type2;
+	}
+
 	//default
 	Gen1_Pokemon::Gen1_Stats::Gen1_Stats() {};
 	//gen1 stats constructor
