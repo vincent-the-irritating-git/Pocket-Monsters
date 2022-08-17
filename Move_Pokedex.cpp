@@ -100,5 +100,5 @@ const std::array<const Move*, 4>& Move_Pokedex::get_gen1_default_movesets(std::s
 		std::cout << e.what() << std::endl;
 		std::cout << "No such moveset found.";
 	}
-	return Move_Pokedex::gen1_default_movesets.at(Pokemon_Pokedex_constants::MISSINGNO);
+	return Move_Pokedex::gen1_default_movesets.at(Pokemon_names::MISSINGNO);
 }

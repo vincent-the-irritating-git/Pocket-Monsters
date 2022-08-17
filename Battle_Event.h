@@ -1,8 +1,11 @@
 #pragma once
 #include <iostream>
+#include "Constants.h"
 #include "Pokemon.h"
 #include "Battle_Pokemon.h"
-#include "Pokedex.h"
+#include "Pokemon_Pokedex.h"
+#include "Move_Pokedex.h"
+#include "Move.h"
 #include <array>
 #include <regex>
 

@@ -121,3 +121,10 @@ had to change it manually in properties.
 -I don't think we need to have defending maps for types, because all we need is the
 	corresponding attack type defined. deleted them and fixed constructor accordingly.
 -can't get the tests to work, getting an error aboout x86 instead of x64
+
+17/08/2022
+-completely redone status and stats. status was too brief and was still using the
+ 	old system of enum and arrays to get names etc. not cohesive.
+	now we have subclasses and a namespace/pointer system like type. 
+	they are all parent class objects.
+-need to remember how to do the virtual method to get the appropriate variables, mind.

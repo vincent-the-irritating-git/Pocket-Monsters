@@ -2,7 +2,7 @@
 #include "Constants.h"
 
 using namespace status_and_stats;
-using namespace Pokemon_Pokedex_constants;
+using namespace Pokemon_names;
 
 namespace pokemon_definitions {
 	Gen1_Pokemon missingno(-1, "Missingno", Type::NONE, Type::NONE, Pokemon::Evolutions(), Gen1_Pokemon::Gen1_Stats(0, 0, 0, 0, 0));

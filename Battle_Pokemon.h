@@ -1,5 +1,7 @@
 #pragma once
+#include "Constants.h"
 #include "Pokemon.h"
+#include "Pokemon_Pokedex.h"
 
 //we will need two classes, one for each
 class Battle_Pokemon
@@ -10,7 +12,7 @@ class Battle_Pokemon
 {
 private:
 	status_and_stats::status_effect_value m_current_pokemon_status = status_and_stats::status_effect_value::NORMAL;
-	const Gen1_Pokemon* pokemon_ptr=nullptr;
+	const Gen1_Pokemon* pokemon_ptr = nullptr;
 	int attack_modifier = 1;
 	int defence_modifier = 1;
 	int speed_modifier = 1;
@@ -18,6 +20,7 @@ private:
 	int hp=1;
 	int critical_hit_ratio = 1;
 	double stun_chance = 0;
+	uint16_t sleep_counter=0;
 	bool is_human = true;
 public:
 	std::string get_battle_pokemon_name();

@@ -1,7 +1,7 @@
 #include "Battle_Event.h"
 
 using namespace status_and_stats;
-using namespace Pokedex_constants;
+using namespace Pokemon_names;
 
 Battle_Event::Battle_Event() {
 
@@ -98,9 +98,9 @@ void Battle_Event::human_turn(Battle_Pokemon& bp) {
 
 const Move& Battle_Event::retrieve_move_from_map(Battle_Pokemon& bp, int m) {
 	std::string name = bp.get_battle_pokemon_name();
-	const Move& move = *(Pokedex::get_gen1_default_movesets(name).at(m));
+	const Move& move = *(Move_Pokedex::get_gen1_default_movesets(name).at(m));
 	if (!is_NULL_MOVE(move))
-		return *(Pokedex::get_gen1_default_movesets(name).at(m));
+		return *(Move_Pokedex::get_gen1_default_movesets(name).at(m));
 	else
 		select_move(bp);
 }
@@ -122,8 +122,8 @@ void Battle_Event::inflict_damage(Battle_Pokemon& bp, const Attack_Move& move) {
 void Battle_Event::display_moves(Battle_Pokemon& bp) {
 	std::string name = bp.get_battle_pokemon_name();
 	const int MAKE_ARRRAY_HUMAN_READABLE = 1;
-	for (int x = 0; x < MAX_MOVES; ++x)
-		std::cout << x + MAKE_ARRRAY_HUMAN_READABLE << ": " << Pokedex::get_gen1_default_movesets(name).at(x)->m_name << std::endl;
+	for (int x = 0; x < Move_constants::MAX_MOVES; ++x)
+		std::cout << x + MAKE_ARRRAY_HUMAN_READABLE << ": " << Move_Pokedex::get_gen1_default_movesets(name).at(x)->m_name << std::endl;
 }
 
 int Battle_Event::select_move(Battle_Pokemon& bp)
@@ -210,11 +210,11 @@ void Battle_Event::select_user_pokemon()
 	std::cout << "Select user's pokemon: ";
 	std::string choice;
 	std::cin >> choice;
-	if (!Pokedex::is_pokemon_in_map(choice)) {
+	if (!Pokemon_Pokedex::is_pokemon_in_map(choice)) {
 		select_user_pokemon();
 		return;
 	}
-	const Gen1_Pokemon& pokemon = Pokedex::get_gen1_pokemon(choice);
+	const Gen1_Pokemon& pokemon = Pokemon_Pokedex::get_gen1_pokemon(choice);
 	user = Battle_Pokemon(pokemon);
 }
 
@@ -223,11 +223,11 @@ void Battle_Event::select_enemy_pokemon()
 	std::cout << "Select enemy's pokemon: ";
 	std::string choice;
 	std::cin >> choice;
-	if (!Pokedex::is_pokemon_in_map(choice)) {
+	if (!Pokemon_Pokedex::is_pokemon_in_map(choice)) {
 		select_enemy_pokemon();
 		return;
 	}
-	const Gen1_Pokemon pokemon = (Pokedex::get_gen1_pokemon(choice));
+	const Gen1_Pokemon pokemon = (Pokemon_Pokedex::get_gen1_pokemon(choice));
 	ai = Battle_Pokemon(pokemon);
 	ai.set_ai();
 }
