@@ -38,11 +38,14 @@ public:
 
 struct Stun_Status_Effect :Status_Effect_Change {
 private:
-	uint8_t m_stun_or_counter=0;
+	uint8_t m_stun=0;
+	uint8_t m_lower_limit = 1;
+	uint8_t m_upper_limit = 1;
 	status_and_stats::stats_value m_stat=status_and_stats::stats_value::ATTACK;
 public:
 	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, uint8_t stun);
-	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, status_and_stats::stats_value stats, uint8_t stun_or_counter);
+	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, uint8_t stun, uint8_t lower_limit, uint8_t upper_limit);
+	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, status_and_stats::stats_value stats, uint8_t stun);
 };
 
 struct Damage_Status_Effect :Status_Effect_Change {
@@ -53,6 +56,9 @@ public:
 };
 
 namespace status_effect {
-	//where we put them all
-	Status_Effect_Change*FREEZE=
+	extern Status_Effect_Change* FREEZE;
+	extern Status_Effect_Change* PARALYSIS;
+	extern Status_Effect_Change* BURN;
+	extern Status_Effect_Change* POISON;
+	extern Status_Effect_Change* SLEEP;
 }

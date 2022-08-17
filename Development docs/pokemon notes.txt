@@ -130,3 +130,6 @@ had to change it manually in properties.
 -need to remember how to do the virtual method to get the appropriate variables, mind.
 -need to alter status effect move to give it the chance of effect, was in status effect
 	before but shouldn't have been
+-taken out the counter for sleep as part of the status effect constructor; wouldn't work
+	that way. instead i've put a range in the constructor instead (1-7) and so for
+	rest i'll do 2 and 2.
