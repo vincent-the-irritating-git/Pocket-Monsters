@@ -128,3 +128,5 @@ had to change it manually in properties.
 	now we have subclasses and a namespace/pointer system like type. 
 	they are all parent class objects.
 -need to remember how to do the virtual method to get the appropriate variables, mind.
+-need to alter status effect move to give it the chance of effect, was in status effect
+	before but shouldn't have been

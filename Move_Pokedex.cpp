@@ -6,7 +6,7 @@ namespace {
 	Attack_Move NULL_MOVE(" ", 0, 0, Type::NONE, 0);
 	//Status_Effect_Attack_Move poison_powder("Poison Powder", 15, 75, Type::POISON, 0, Status_Effect_Change(status_effect_value::POISON, 100));
 	Stats_Value_Attack_Move growl("Growl", 40, 100, Type::NORMAL, 0, Stats_Change(status_and_stats::stats_value::ATTACK, 1));
-	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::ELECTRIC, 40, Status_Effect_Change(status_and_stats::status_effect_value::PARALYSIS, 10));
+	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::ELECTRIC, 40, Stun_Status_Effect(status_and_stats::status_effect_value::PARALYSIS, 10));
 	Attack_Move tackle("Tackle", 35, 95, Type::NORMAL, 35);
 }
 	const std::string NULL_MOVE = " ";
