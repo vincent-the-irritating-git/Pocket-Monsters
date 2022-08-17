@@ -46,12 +46,10 @@ private:
 	type_properties::Classification m_classification;
 	type_properties::Type_Enum m_type;
 	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>m_ATTACK_MATCHUPS;
-	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>m_DEFENCE_MATCHUPS;
 public:
 	Type_Data(type_properties::Type_Enum, type_properties::Classification);
-	Type_Data(type_properties::Type_Enum, type_properties::Classification, std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>, std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>);
+	Type_Data(type_properties::Type_Enum, type_properties::Classification, std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>);
 	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>get_attack_matchups_map();
-	std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>get_defence_matchups_map();
 	type_properties::Type_Enum get_type()const;
 	type_properties::Classification get_classification()const;
 	std::string get_type_name() const;

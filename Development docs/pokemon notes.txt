@@ -119,5 +119,5 @@ had to change it manually in properties.
 16/08/2022
 -fixed move and move_pokedex with pointers and added them to the solution
 -I don't think we need to have defending maps for types, because all we need is the
-	corresponding attack type defined.
+	corresponding attack type defined. deleted them and fixed constructor accordingly.
 -can't get the tests to work, getting an error aboout x86 instead of x64
