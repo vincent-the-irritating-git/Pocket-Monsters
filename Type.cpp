@@ -176,8 +176,8 @@ bool Type_Data::operator==(Type_Data* t) const
 	return false;
 }
 
-static bool type_properties::is_Classification_physical(type_properties::Classification tc) {
-	if (static_cast<int>(tc) == 0)
+bool Type_Data::is_Classification_physical() {
+	if (static_cast<int>(this->m_classification) == 0)
 		return true;
 	else return false;
 }

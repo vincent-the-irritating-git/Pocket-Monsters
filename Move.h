@@ -29,8 +29,9 @@ struct Attack_Move:public Move {
 };
 
 struct Status_Effect_Attack_Move : public Attack_Move {
-	Status_Effect_Change m_status_effect_change;
-	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data* type, int power, Status_Effect_Change stats_effect);
+	Status_Effect_Change* m_status_effect_change;
+	uint8_t m_status_effect_chance;
+	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data* type, int power, Status_Effect_Change* stats_effect, uint8_t status_effect_chance);
 	void show_move_values() override;
 };
 

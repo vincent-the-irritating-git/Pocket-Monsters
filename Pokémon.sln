@@ -9,7 +9,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Type_Test", "..\Type_Test\T
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pokemon_Test", "..\Pokemon_Test\Pokemon_Test.vcxproj", "{FF12B41B-2B1C-4174-AB62-C564BCB92533}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pokedex_test", "..\Pokedex_test\Pokedex_test.vcxproj", "{FA7FB2F9-305F-4862-9303-C9E0C04415FA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pokemon_Pokedex_test", "..\Pokedex_test\Pokedex_test.vcxproj", "{FA7FB2F9-305F-4862-9303-C9E0C04415FA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stats_n_Status_Test", "..\Stats_n_Status_Test\Stats_n_Status_Test.vcxproj", "{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,14 @@ Global
 		{FA7FB2F9-305F-4862-9303-C9E0C04415FA}.Release|x64.Build.0 = Release|x64
 		{FA7FB2F9-305F-4862-9303-C9E0C04415FA}.Release|x86.ActiveCfg = Release|Win32
 		{FA7FB2F9-305F-4862-9303-C9E0C04415FA}.Release|x86.Build.0 = Release|Win32
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Debug|x64.ActiveCfg = Debug|x64
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Debug|x64.Build.0 = Debug|x64
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Debug|x86.ActiveCfg = Debug|Win32
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Debug|x86.Build.0 = Debug|Win32
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x64.ActiveCfg = Release|x64
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x64.Build.0 = Release|x64
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x86.ActiveCfg = Release|Win32
+		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

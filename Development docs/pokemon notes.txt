@@ -133,3 +133,8 @@ had to change it manually in properties.
 -taken out the counter for sleep as part of the status effect constructor; wouldn't work
 	that way. instead i've put a range in the constructor instead (1-7) and so for
 	rest i'll do 2 and 2.
+
+23/08/2022
+-done a new constructor for damage status effect, as burn need one for attack and hp
+-added the virtual functions for status_effect_change
+-added the virtual overried for the subclasses of status_effect_change

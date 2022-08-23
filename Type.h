@@ -18,8 +18,6 @@
 		{type_properties::Type_Enum::NONE, "NONE"},
 		{type_properties::Type_Enum::ELECTRIC, "ELECTRIC" }
 		};
-
-		extern bool is_Classification_physical(type_properties::Classification tc);
 		extern std::ostream& operator << (std::ostream& out, const type_properties::Type_Enum& te);
 	}
 
@@ -55,6 +53,7 @@ public:
 	std::string get_type_name() const;
 	bool operator==(Type_Data* t) const;
 	Effectiveness_Data* get_matchup_value(type_properties::Type_Enum defending_type);
+	bool is_Classification_physical();
 };
 
 namespace Type{

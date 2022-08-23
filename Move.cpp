@@ -21,7 +21,7 @@ void Attack_Move::show_move_values() {
 	std::cout << std::endl;
 }
 
-Status_Effect_Attack_Move::Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data* type, int power, Status_Effect_Change stats_effect) :Attack_Move(name, pp, accuracy, type, power), m_status_effect_change(stats_effect){
+Status_Effect_Attack_Move::Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data* type, int power, Status_Effect_Change* stats_effect, uint8_t status_effect_chance) :Attack_Move(name, pp, accuracy, type, power), m_status_effect_change(stats_effect), m_status_effect_chance(status_effect_chance){
 	is_status_inflicting = true;
 	m_status_effect_change = stats_effect;
 }
@@ -32,8 +32,8 @@ void Status_Effect_Attack_Move::show_move_values() {
 	std::cout << "PP " << m_pp << std::endl;
 	std::cout << "Accuracy " << m_accuracy << std::endl;
 	std::cout << "Power: " << m_power << std::endl;
-	std::cout << "Status effect: " << m_status_effect_change.get_status_effect_name() << std::endl;
-	std::cout << "Chance: " << m_status_effect_change.get_status_get_chance() << std::endl;
+	std::cout << "Status effect: " << m_status_effect_change->get_status_effect_name() << std::endl;
+	std::cout << "Chance: " << m_status_effect_chance << std::endl;
 	std::cout << std::endl;
 }
 
@@ -48,7 +48,7 @@ void Stats_Value_Attack_Move::show_move_values() {
 	std::cout << "PP " << m_pp << std::endl;
 	std::cout << "Accuracy " << m_accuracy << std::endl;
 	std::cout << "Power: " << m_power << std::endl;
-	std::cout << "Stats change: " << m_stats_change.get_stats_value() << std::endl;
+	std::cout << "Stats change: " << m_stats_change.get_stats_value_name()<< std::endl;
 	std::cout << "Stages changed: " << m_stats_change.get_stats_stages() << std::endl;
 	std::cout << std::endl;
 }
@@ -64,7 +64,7 @@ void Defence_Move::show_move_values() {
 	std::cout << "Type: " << m_type->get_type_name() << std::endl;
 	std::cout << "PP " << m_pp << std::endl;
 	std::cout << "Accuracy " << m_accuracy << std::endl;
-	std::cout << "Stats change: " << m_stats_change.get_stats_value() << std::endl;
+	std::cout << "Stats change: " << m_stats_change.get_stats_value_name()<< std::endl;
 	std::cout << "Stages changed: " << m_stats_change.get_stats_stages() << std::endl;
 	std::cout << std::endl;
 }
