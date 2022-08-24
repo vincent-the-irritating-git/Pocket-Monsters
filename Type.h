@@ -33,10 +33,10 @@ public:
 };
 
 namespace Effectiveness {
-	extern Effectiveness_Data* UNEFFECTIVE;
-	extern Effectiveness_Data* NOT_VERY_EFFECTIVE;
-	extern Effectiveness_Data* NEUTRAL;
-	extern Effectiveness_Data* SUPER_EFFECTIVE;
+	extern Effectiveness_Data& UNEFFECTIVE;
+	extern Effectiveness_Data& NOT_VERY_EFFECTIVE;
+	extern Effectiveness_Data& NEUTRAL;
+	extern Effectiveness_Data& SUPER_EFFECTIVE;
 };
 
 class Type_Data {
@@ -52,13 +52,13 @@ public:
 	type_properties::Classification get_classification()const;
 	std::string get_type_name() const;
 	bool operator==(Type_Data* t) const;
-	Effectiveness_Data* get_matchup_value(type_properties::Type_Enum defending_type);
+	Effectiveness_Data& get_matchup_value(type_properties::Type_Enum defending_type);
 	bool is_Classification_physical();
 };
 
 namespace Type{
-	extern Type_Data* BUG;
-	extern Type_Data* NONE;
-	extern Type_Data* NORMAL;
-	extern Type_Data* ELECTRIC;
+	extern Type_Data& BUG;
+	extern Type_Data& NONE;
+	extern Type_Data& NORMAL;
+	extern Type_Data& ELECTRIC;
 };

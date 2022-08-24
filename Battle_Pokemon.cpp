@@ -23,8 +23,8 @@ std::string Battle_Pokemon::get_battle_pokemon_name()
 	return pokemon_ptr->get_pokemon_name();
 }
 
-void Battle_Pokemon::DEBUG_set_status(const status_effect_value& sv){
-	m_current_pokemon_status = sv;
+void Battle_Pokemon::DEBUG_set_status_effect(Status_Effect_Change& sv){
+	m_status_effect = &sv;
 }
 
 int Battle_Pokemon::modified_attack()const
@@ -49,12 +49,12 @@ int Battle_Pokemon::modified_special()const
 
 double Battle_Pokemon::get_stun_chance()
 {
-	return stun_chance;
+	return m_stun_chance;
 }
 
-status_effect_value Battle_Pokemon::get_status_effect()
+Status_Effect_Change& Battle_Pokemon::get_status_effect()
 {
-	return m_current_pokemon_status;
+	return *m_status_effect;
 }
 
 void Battle_Pokemon::show_battle_stats()const

@@ -20,7 +20,7 @@ private:
 public:
 	Stats_Change(status_and_stats::stats_value, float);
 	Stats_Change();
-	int get_stats_stages();
+	float get_stats_stages();
 	status_and_stats::stats_value get_stats_value();
 	std::string get_stats_value_name();
 };
@@ -35,6 +35,7 @@ public:
 	virtual uint8_t get_lower_limit();
 	virtual uint8_t get_upper_limit();
 	virtual Stats_Change get_stats_change();
+	virtual Stats_Change get_stats_change2();
 };
 
 struct Stun_Status_Effect :Status_Effect_Change {
@@ -60,13 +61,15 @@ public:
 	Damage_Status_Effect(status_and_stats::status_effect_value status_effect, Stats_Change stat);
 	Damage_Status_Effect(status_and_stats::status_effect_value status_effect, Stats_Change stat, Stats_Change stat2);
 	virtual Stats_Change get_stats_change() override;
+	virtual Stats_Change get_stats_change2() override;
 };
 
 namespace status_effect {
-	extern Status_Effect_Change* FREEZE;
-	extern Status_Effect_Change* PARALYSIS;
-	extern Status_Effect_Change* BURN;
-	extern Status_Effect_Change* POISON;
-	extern Status_Effect_Change* SLEEP;
-	extern Status_Effect_Change* REST;
+	extern Status_Effect_Change& NORMAL;
+	extern Status_Effect_Change& FREEZE;
+	extern Status_Effect_Change& PARALYSIS;
+	extern Status_Effect_Change& BURN;
+	extern Status_Effect_Change& POISON;
+	extern Status_Effect_Change& SLEEP;
+	extern Status_Effect_Change& REST;
 }

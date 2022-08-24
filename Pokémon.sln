@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Pokemon_Pokedex_test", "..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stats_n_Status_Test", "..\Stats_n_Status_Test\Stats_n_Status_Test.vcxproj", "{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Battle_Event_Test", "..\Battle_Event_Test\Battle_Event_Test.vcxproj", "{2721088E-7AB3-4EF8-B653-3634D55F52FF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x64.Build.0 = Release|x64
 		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x86.ActiveCfg = Release|Win32
 		{C7FBF1C4-5C45-4098-A1C7-5BBC6945B9AD}.Release|x86.Build.0 = Release|Win32
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Debug|x64.ActiveCfg = Debug|x64
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Debug|x64.Build.0 = Debug|x64
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Debug|x86.ActiveCfg = Debug|Win32
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Debug|x86.Build.0 = Debug|Win32
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Release|x64.ActiveCfg = Release|x64
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Release|x64.Build.0 = Release|x64
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Release|x86.ActiveCfg = Release|Win32
+		{2721088E-7AB3-4EF8-B653-3634D55F52FF}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

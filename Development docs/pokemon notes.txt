@@ -138,3 +138,10 @@ had to change it manually in properties.
 -done a new constructor for damage status effect, as burn need one for attack and hp
 -added the virtual functions for status_effect_change
 -added the virtual overried for the subclasses of status_effect_change
+
+24/08/22
+-changed the type, status and effectiveness values to be references rather than poniters
+	e.g. Type::BUG is now a reference to the value created in type.cpp rather than
+	a pointer. changed all the code accordingly to reflect this.
+-got all the tests projects working again (they needed the additional dependancies
+	adding).

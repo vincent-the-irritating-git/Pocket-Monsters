@@ -4,6 +4,7 @@ using namespace status_and_stats;
 
 namespace {
 	namespace status_effects {
+		Status_Effect_Change NORMAL(status_and_stats::status_effect_value::NORMAL);
 		Damage_Status_Effect BURN(status_effect_value::BURN, { Stats_Change(stats_value::HP,6.25f) }, {Stats_Change(stats_value::ATTACK,0.5f)});
 		Damage_Status_Effect POISON(status_effect_value::POISON, Stats_Change(stats_value::HP, 6.25f));
 		Stun_Status_Effect PARALYSIS(status_effect_value::PARALYSIS, stats_value::SPEED, 25);
@@ -19,7 +20,7 @@ namespace {
 			{ stats_value::CRITICAL_HIT_RATIO, "CRITICAL HIT RATIO" },
 			{ stats_value::DEFENCE, "DEFENCE" },
 			{ stats_value::HP, "HP" },
-			{ stats_value::SPECIAL, "HP" },
+			{ stats_value::SPECIAL, "SPECIAL" },
 			{ stats_value::SPECIAL_ATTACK, "SPECIAL ATTACK" },
 			{ stats_value::SPECIAL_DEFENCE, "SPECIAL DEFENCE" },
 			{ stats_value::SPEED, "SPEED" }
@@ -38,12 +39,13 @@ namespace {
 		}
 }
 
-Status_Effect_Change* status_effect::BURN = &status_effects::BURN;
-Status_Effect_Change* status_effect::POISON = &status_effects::POISON;
-Status_Effect_Change* status_effect::PARALYSIS = &status_effects::PARALYSIS;
-Status_Effect_Change* status_effect::FREEZE = &status_effects::FREEZE;
-Status_Effect_Change* status_effect::SLEEP = &status_effects::SLEEP;
-Status_Effect_Change* status_effect::REST = &status_effects::REST;
+Status_Effect_Change& status_effect::NORMAL = status_effects::NORMAL;
+Status_Effect_Change& status_effect::BURN = status_effects::BURN;
+Status_Effect_Change& status_effect::POISON = status_effects::POISON;
+Status_Effect_Change& status_effect::PARALYSIS = status_effects::PARALYSIS;
+Status_Effect_Change& status_effect::FREEZE = status_effects::FREEZE;
+Status_Effect_Change& status_effect::SLEEP = status_effects::SLEEP;
+Status_Effect_Change& status_effect::REST = status_effects::REST;
 
 uint8_t Status_Effect_Change::get_stun() {
 	return-1;
@@ -58,6 +60,11 @@ uint8_t Status_Effect_Change::get_upper_limit() {
 }
 
 Stats_Change Status_Effect_Change::get_stats_change() {
+	return Stats_Change();
+}
+
+Stats_Change Status_Effect_Change::get_stats_change2()
+{
 	return Stats_Change();
 }
 
@@ -106,6 +113,10 @@ Stats_Change Damage_Status_Effect::get_stats_change(){
 	return m_stats;
 }
 
+Stats_Change Damage_Status_Effect::get_stats_change2() {
+	return m_stat2;
+}
+
 Stats_Change::Stats_Change(stats_value status, float stages_or_per_cent) : m_stats_value(status), m_stages_or_per_cent(stages_or_per_cent)
 {
 	m_stats_value = status;
@@ -114,7 +125,7 @@ Stats_Change::Stats_Change(stats_value status, float stages_or_per_cent) : m_sta
 
 Stats_Change::Stats_Change() {};
 
-int Stats_Change::get_stats_stages()
+float Stats_Change::get_stats_stages()
 {
 	return m_stages_or_per_cent;
 }

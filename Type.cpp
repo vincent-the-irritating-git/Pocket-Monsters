@@ -12,22 +12,22 @@ namespace {
 		using namespace type_properties;
 		using namespace Effectiveness;
 		std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>NONE_ATTACKING_MAP{
-			{Type_Enum::NONE, NEUTRAL},
-			{Type_Enum::NORMAL, NEUTRAL},
-			{Type_Enum::FIRE, NEUTRAL},
-			{Type_Enum::WATER, NEUTRAL},
-			{Type_Enum::ELECTRIC, NEUTRAL},
-			{Type_Enum::GRASS, NEUTRAL},
-			{Type_Enum::ICE, NEUTRAL},
-			{Type_Enum::FIGHTING, NEUTRAL},
-			{Type_Enum::POISON, NEUTRAL},
-			{Type_Enum::GROUND, NEUTRAL},
-			{Type_Enum::FLYING, NEUTRAL},
-			{Type_Enum::PSYCHIC, NEUTRAL},
-			{Type_Enum::BUG, NEUTRAL},
-			{Type_Enum::ROCK, NEUTRAL},
-			{Type_Enum::GHOST, NEUTRAL },
-			{Type_Enum::DRAGON, NEUTRAL }
+			{Type_Enum::NONE, &NEUTRAL},
+			{Type_Enum::NORMAL, &NEUTRAL},
+			{Type_Enum::FIRE, &NEUTRAL},
+			{Type_Enum::WATER, & NEUTRAL},
+			{Type_Enum::ELECTRIC, &NEUTRAL},
+			{Type_Enum::GRASS, &NEUTRAL},
+			{Type_Enum::ICE, &NEUTRAL},
+			{Type_Enum::FIGHTING, &NEUTRAL},
+			{Type_Enum::POISON, &NEUTRAL},
+			{Type_Enum::GROUND, &NEUTRAL},
+			{Type_Enum::FLYING, &NEUTRAL},
+			{Type_Enum::PSYCHIC, &NEUTRAL},
+			{Type_Enum::BUG, &NEUTRAL},
+			{Type_Enum::ROCK, &NEUTRAL},
+			{Type_Enum::GHOST, &NEUTRAL },
+			{Type_Enum::DRAGON, &NEUTRAL }
 		};
 		Type_Data NONE(type_properties::Type_Enum::NONE, type_properties::Classification::PHYSICAL, NONE_ATTACKING_MAP);
 	}
@@ -35,22 +35,22 @@ namespace {
 		using namespace type_properties;
 		using namespace Effectiveness;
 		std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>NORMAL_ATTACKING_MAP{
-			{Type_Enum::NONE, NEUTRAL},
-			{Type_Enum::NORMAL, NEUTRAL},
-			{Type_Enum::FIRE, NEUTRAL},
-			{Type_Enum::WATER, NEUTRAL},
-			{Type_Enum::ELECTRIC, NEUTRAL},
-			{Type_Enum::GRASS, NEUTRAL},
-			{Type_Enum::ICE, NEUTRAL},
-			{Type_Enum::FIGHTING, NEUTRAL},
-			{Type_Enum::POISON, NEUTRAL},
-			{Type_Enum::GROUND, NEUTRAL},
-			{Type_Enum::FLYING, NEUTRAL},
-			{Type_Enum::PSYCHIC, NEUTRAL},
-			{Type_Enum::BUG, NEUTRAL},
-			{Type_Enum::ROCK, NOT_VERY_EFFECTIVE},
-			{Type_Enum::GHOST, UNEFFECTIVE },
-			{Type_Enum::DRAGON, NEUTRAL }
+			{Type_Enum::NONE, &NEUTRAL},
+			{Type_Enum::NORMAL, &NEUTRAL},
+			{Type_Enum::FIRE, &NEUTRAL},
+			{Type_Enum::WATER, &NEUTRAL},
+			{Type_Enum::ELECTRIC, &NEUTRAL},
+			{Type_Enum::GRASS, &NEUTRAL},
+			{Type_Enum::ICE, &NEUTRAL},
+			{Type_Enum::FIGHTING, &NEUTRAL},
+			{Type_Enum::POISON, &NEUTRAL},
+			{Type_Enum::GROUND, &NEUTRAL},
+			{Type_Enum::FLYING, &NEUTRAL},
+			{Type_Enum::PSYCHIC, &NEUTRAL},
+			{Type_Enum::BUG, &NEUTRAL},
+			{Type_Enum::ROCK, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::GHOST, &UNEFFECTIVE },
+			{Type_Enum::DRAGON, &NEUTRAL }
 		};
 		Type_Data NORMAL(type_properties::Type_Enum::NORMAL, type_properties::Classification::PHYSICAL, NORMAL_ATTACKING_MAP);
 	}
@@ -58,22 +58,22 @@ namespace {
 		using namespace type_properties;
 		using namespace Effectiveness;
 		std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>ELECTRIC_ATTACKING_MAP{
-			{Type_Enum::NONE, NEUTRAL},
-			{Type_Enum::NORMAL, NEUTRAL},
-			{Type_Enum::FIRE, NEUTRAL},
-			{Type_Enum::WATER, SUPER_EFFECTIVE},
-			{Type_Enum::ELECTRIC, NOT_VERY_EFFECTIVE},
-			{Type_Enum::GRASS, NOT_VERY_EFFECTIVE},
-			{Type_Enum::ICE, NEUTRAL},
-			{Type_Enum::FIGHTING, NEUTRAL},
-			{Type_Enum::POISON, NEUTRAL},
-			{Type_Enum::GROUND, UNEFFECTIVE},
-			{Type_Enum::FLYING, SUPER_EFFECTIVE},
-			{Type_Enum::PSYCHIC, NEUTRAL},
-			{Type_Enum::BUG, NEUTRAL},
-			{Type_Enum::ROCK, NOT_VERY_EFFECTIVE},
-			{Type_Enum::GHOST, NEUTRAL },
-			{Type_Enum::DRAGON, NOT_VERY_EFFECTIVE }
+			{Type_Enum::NONE, &NEUTRAL},
+			{Type_Enum::NORMAL, &NEUTRAL},
+			{Type_Enum::FIRE, &NEUTRAL},
+			{Type_Enum::WATER, &SUPER_EFFECTIVE},
+			{Type_Enum::ELECTRIC, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::GRASS, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::ICE, &NEUTRAL},
+			{Type_Enum::FIGHTING, &NEUTRAL},
+			{Type_Enum::POISON, &NEUTRAL},
+			{Type_Enum::GROUND, &UNEFFECTIVE},
+			{Type_Enum::FLYING, &SUPER_EFFECTIVE},
+			{Type_Enum::PSYCHIC, &NEUTRAL},
+			{Type_Enum::BUG, &NEUTRAL},
+			{Type_Enum::ROCK, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::GHOST, &NEUTRAL },
+			{Type_Enum::DRAGON, &NOT_VERY_EFFECTIVE }
 		};
 		Type_Data ELECTRIC(type_properties::Type_Enum::ELECTRIC, type_properties::Classification::SPECIAL, ELECTRIC_ATTACKING_MAP);
 	}
@@ -81,22 +81,22 @@ namespace {
 		using namespace type_properties;
 		using namespace Effectiveness;
 		std::unordered_map<type_properties::Type_Enum, Effectiveness_Data*>BUG_ATTACKING_MAP{
-			{Type_Enum::NONE, NEUTRAL},
-			{Type_Enum::NORMAL, NEUTRAL},
-			{Type_Enum::FIRE, NOT_VERY_EFFECTIVE},
-			{Type_Enum::WATER, NEUTRAL},
-			{Type_Enum::ELECTRIC, NEUTRAL},
-			{Type_Enum::GRASS, SUPER_EFFECTIVE},
-			{Type_Enum::ICE, NEUTRAL},
-			{Type_Enum::FIGHTING, NOT_VERY_EFFECTIVE},
-			{Type_Enum::POISON, SUPER_EFFECTIVE},
-			{Type_Enum::GROUND, NEUTRAL},
-			{Type_Enum::FLYING, NOT_VERY_EFFECTIVE},
-			{Type_Enum::PSYCHIC, SUPER_EFFECTIVE},
-			{Type_Enum::BUG, NEUTRAL},
-			{Type_Enum::ROCK, NEUTRAL},
-			{Type_Enum::GHOST, NOT_VERY_EFFECTIVE },
-			{Type_Enum::DRAGON, NEUTRAL }
+			{Type_Enum::NONE, &NEUTRAL},
+			{Type_Enum::NORMAL, &NEUTRAL},
+			{Type_Enum::FIRE, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::WATER, &NEUTRAL},
+			{Type_Enum::ELECTRIC, &NEUTRAL},
+			{Type_Enum::GRASS, &SUPER_EFFECTIVE},
+			{Type_Enum::ICE, &NEUTRAL},
+			{Type_Enum::FIGHTING, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::POISON, &SUPER_EFFECTIVE},
+			{Type_Enum::GROUND, &NEUTRAL},
+			{Type_Enum::FLYING, &NOT_VERY_EFFECTIVE},
+			{Type_Enum::PSYCHIC, &SUPER_EFFECTIVE},
+			{Type_Enum::BUG, &NEUTRAL},
+			{Type_Enum::ROCK, &NEUTRAL},
+			{Type_Enum::GHOST, &NOT_VERY_EFFECTIVE },
+			{Type_Enum::DRAGON, &NEUTRAL }
 		};
 		Type_Data BUG(type_properties::Type_Enum::BUG, type_properties::Classification::PHYSICAL, BUG_ATTACKING_MAP);
 	}
@@ -117,15 +117,15 @@ namespace {
 	}
 }
 
-Effectiveness_Data* Effectiveness::UNEFFECTIVE = &effectiveness_constants::UNEFFECTIVE;
-Effectiveness_Data* Effectiveness::NOT_VERY_EFFECTIVE = &effectiveness_constants::NOT_VERY_EFFECTIVE;
-Effectiveness_Data* Effectiveness::NEUTRAL = &effectiveness_constants::NEUTRAL;
-Effectiveness_Data* Effectiveness::SUPER_EFFECTIVE = &effectiveness_constants::SUPER_EFFECTIVE;
+Effectiveness_Data& Effectiveness::UNEFFECTIVE = effectiveness_constants::UNEFFECTIVE;
+Effectiveness_Data& Effectiveness::NOT_VERY_EFFECTIVE = effectiveness_constants::NOT_VERY_EFFECTIVE;
+Effectiveness_Data& Effectiveness::NEUTRAL = effectiveness_constants::NEUTRAL;
+Effectiveness_Data& Effectiveness::SUPER_EFFECTIVE = effectiveness_constants::SUPER_EFFECTIVE;
 
-Type_Data* Type::ELECTRIC = &electric_type::ELECTRIC;
-Type_Data* Type::NORMAL = &normal_type::NORMAL;
-Type_Data* Type::BUG = &bug_type::BUG;
-Type_Data* Type::NONE = &none_type::NONE;
+Type_Data& Type::ELECTRIC = electric_type::ELECTRIC;
+Type_Data& Type::NORMAL = normal_type::NORMAL;
+Type_Data& Type::BUG = bug_type::BUG;
+Type_Data& Type::NONE = none_type::NONE;
 
 std::ostream& type_properties::operator << (std::ostream& out, const type_properties::Type_Enum& te)
 {
@@ -182,10 +182,10 @@ bool Type_Data::is_Classification_physical() {
 	else return false;
 }
 
-Effectiveness_Data* Type_Data::get_matchup_value(type_properties::Type_Enum defending_type)
+Effectiveness_Data& Type_Data::get_matchup_value(type_properties::Type_Enum defending_type)
 {
 	try {
-		return this->get_attack_matchups_map().at(defending_type);
+		return *(this->get_attack_matchups_map().at(defending_type));
 	}
 	catch (std::exception e) {
 		std::cout <<"No type matchup found!"<<std::endl<< e.what()<<std::endl;
