@@ -16,7 +16,9 @@ struct Move {
 	Move(std::string, int, int, Type_Data&);
 	//elon musk is a twat
 	bool operator==(const Move&)const;
-	virtual void show_move_values() { std::cout << "Default"<<std::endl; };
+	virtual void show_move_values()const {
+		std::cout << "If you're seeing this, something's gone wrong." << std::endl;
+	}
 };
 
 /*we must remember moves like dig and fury swipes*/
@@ -25,24 +27,24 @@ struct Move {
 struct Attack_Move:public Move {
 	int m_power = 0;
 	Attack_Move(std::string name, int pp, int accuracy, Type_Data& type, int power);
-	void show_move_values() override;
+	void show_move_values()const override;
 };
 
 struct Status_Effect_Attack_Move : public Attack_Move {
 	Status_Effect_Change* m_status_effect_change;
-	uint8_t m_status_effect_chance;
-	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data& type, int power, Status_Effect_Change& stats_effect, uint8_t status_effect_chance);
-	void show_move_values() override;
+	int m_status_effect_chance=0;
+	Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data& type, int power, Status_Effect_Change& stats_effect, int status_effect_chance);
+	void show_move_values()const override;
 };
 
 struct Stats_Value_Attack_Move : public Attack_Move {
 	Stats_Change m_stats_change;
 	Stats_Value_Attack_Move(std::string name, int pp, int accuracy, Type_Data& type, int power, Stats_Change stats_change);
-	void show_move_values() override;
+	void show_move_values()const override;
 };
 
 struct Defence_Move :public Move {
 	Stats_Change m_stats_change;
 	Defence_Move(std::string name, int pp, int accuracy, Type_Data& type, Stats_Change status);
-	void show_move_values() override;
+	void show_move_values()const override;
 };

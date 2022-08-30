@@ -145,3 +145,12 @@ had to change it manually in properties.
 	a pointer. changed all the code accordingly to reflect this.
 -got all the tests projects working again (they needed the additional dependancies
 	adding).
+-added a second status to battle Pokemon
+-removed that second status (simple error on my part)
+
+30/08/22
+-added ()const to a lot of stats n status methods etc because they need them for the virtual
+	functions to work
+-removed uint8_t everywhere, doesn't do what I thought it did (thought it was just a short)
+-got Battle_Event_Test working
+-started removing the funcition pointers from BE

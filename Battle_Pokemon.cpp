@@ -16,6 +16,7 @@ Battle_Pokemon::~Battle_Pokemon()
 Battle_Pokemon::Battle_Pokemon(const Gen1_Pokemon& pokemon) {
 	pokemon_ptr = &(Pokemon_Pokedex::get_gen1_pokemon(pokemon.get_pokemon_name()));
 	hp = pokemon_ptr->get_m_stats().at(stats_value::HP);
+
 }
 
 std::string Battle_Pokemon::get_battle_pokemon_name()
@@ -45,6 +46,10 @@ int Battle_Pokemon::modified_speed()const
 int Battle_Pokemon::modified_special()const
 {
 	return pokemon_ptr->get_m_stats().at(stats_value::SPECIAL)* special_modifier;
+}
+
+int Battle_Pokemon::modified_critical()const {
+	return pokemon_ptr->get_m_stats().at(stats_value::CRITICAL_HIT_RATIO) * critical_hit_ratio;
 }
 
 double Battle_Pokemon::get_stun_chance()

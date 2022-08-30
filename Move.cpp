@@ -16,17 +16,18 @@ Attack_Move::Attack_Move(std::string name, int pp, int accuracy, Type_Data& type
 	m_power = power;
 }
 
-void Attack_Move::show_move_values() {
+void Attack_Move::show_move_values()const {
 	printf("Move: %s\nType: %s\nPP: %d\nAccuracy: %d\nPower: %d\n", m_name.c_str(), m_type->get_type_name().c_str() , m_pp, m_accuracy, m_power);
 	std::cout << std::endl;
 }
 
-Status_Effect_Attack_Move::Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data& type, int power, Status_Effect_Change& stats_effect, uint8_t status_effect_chance) :Attack_Move(name, pp, accuracy, type, power), m_status_effect_change(&stats_effect), m_status_effect_chance(status_effect_chance){
+Status_Effect_Attack_Move::Status_Effect_Attack_Move(std::string name, int pp, int accuracy, Type_Data& type, int power, Status_Effect_Change& stats_effect, int status_effect_chance) :Attack_Move(name, pp, accuracy, type, power), m_status_effect_change(&stats_effect), m_status_effect_chance(status_effect_chance){
 	is_status_inflicting = true;
 	m_status_effect_change = &stats_effect;
+	m_status_effect_chance = status_effect_chance;
 }
 
-void Status_Effect_Attack_Move::show_move_values() {
+void Status_Effect_Attack_Move::show_move_values()const {
 	std::cout << "Move: " << m_name << std::endl;
 	std::cout << "Type: " << m_type->get_type_name() << std::endl;
 	std::cout << "PP " << m_pp << std::endl;
@@ -42,7 +43,7 @@ Stats_Value_Attack_Move::Stats_Value_Attack_Move(std::string name, int pp, int a
 	m_stats_change = stats_change;
 }
 
-void Stats_Value_Attack_Move::show_move_values() {
+void Stats_Value_Attack_Move::show_move_values()const {
 	std::cout << "Move: " << m_name << std::endl;
 	std::cout << "Type: " << m_type->get_type_name() << std::endl;
 	std::cout << "PP " << m_pp << std::endl;
@@ -59,7 +60,7 @@ Defence_Move::Defence_Move(std::string name, int pp, int accuracy, Type_Data& ty
 	m_stats_change = stats;
 }
 
-void Defence_Move::show_move_values() {
+void Defence_Move::show_move_values()const {
 	std::cout << "Move: " << m_name << std::endl;
 	std::cout << "Type: " << m_type->get_type_name() << std::endl;
 	std::cout << "PP " << m_pp << std::endl;

@@ -13,10 +13,12 @@
 			PHYSICAL, SPECIAL
 		};
 
+		//TODO not finished
 		static std::unordered_map<type_properties::Type_Enum, std::string>type_names{
-		{type_properties::Type_Enum::BUG, "BUG"},
-		{type_properties::Type_Enum::NONE, "NONE"},
-		{type_properties::Type_Enum::ELECTRIC, "ELECTRIC" }
+			{type_properties::Type_Enum::BUG, "BUG"},
+			{type_properties::Type_Enum::NONE, "NONE"},
+			{type_properties::Type_Enum::ELECTRIC, "ELECTRIC" },
+			{type_properties::Type_Enum::NORMAL, "NORMAL"}
 		};
 		extern std::ostream& operator << (std::ostream& out, const type_properties::Type_Enum& te);
 	}

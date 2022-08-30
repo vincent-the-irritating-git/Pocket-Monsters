@@ -157,11 +157,11 @@ bool Battle_Event::is_stunned(Battle_Pokemon& bp) {
 }
 
 bool Battle_Event::is_status_effect_a_stun(Battle_Pokemon& bp) {
-	if (bp.get_status_effect() == status_effect_value::FREEZE)
+	if (&bp.get_status_effect() == &status_effect::FREEZE)
 		return true;
-	if (bp.get_status_effect() == status_effect_value::PARALYSIS)
+	if (&bp.get_status_effect() == &status_effect::PARALYSIS)
 		return true;
-	if (bp.get_status_effect() == status_effect_value::SLEEP)
+	if (&bp.get_status_effect() == &status_effect::SLEEP)
 		return true;
 	return false;
 }
@@ -180,11 +180,8 @@ void Battle_Event::show_stun_message(std::string message) {
 }
 
 std::string Battle_Event::get_stun_message(Battle_Pokemon& bp) {
-	//this is an array of function pointers, where the number in the array corresponds to the number of the status enum value
-	//so the freeze_message() is at number 4, as this is the value of FREEZE
-	//the nullptrs because the corresponding enum is not a stun. normal is done for debug purposes
-	std::string(*stun_message_pointer[])(Battle_Pokemon&) = { &normal_stun_message, &paralysis_stun_message, nullptr, nullptr, &freeze_stun_message, &sleep_stun_message };
-	return stun_message_pointer[static_cast<int>(bp.get_status_effect())](bp);
+	//TODO this needs redoing
+	return "what raging fire shall flood the soul?";
 }
 
 std::string Battle_Event::normal_stun_message(Battle_Pokemon& current) {

@@ -141,6 +141,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Battle_Event.cpp" />
     <ClCompile Include="Battle_Pokemon.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Move.cpp" />
@@ -152,6 +153,7 @@
     <ClCompile Include="Type.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Battle_Event.h" />
     <ClInclude Include="Battle_Pokemon.h" />
     <ClInclude Include="Constants.h" />
     <ClInclude Include="Move.h" />

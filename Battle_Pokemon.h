@@ -19,8 +19,8 @@ private:
 	int special_modifier = 1;
 	int hp=1;
 	int critical_hit_ratio = 1;
-	uint8_t m_stun_chance = 0;
-	uint8_t sleep_counter=0;
+	int m_stun_chance = 0;
+	int sleep_counter=0;
 	bool is_human = true;
 public:
 	std::string get_battle_pokemon_name();
@@ -32,6 +32,7 @@ public:
 	int modified_defence()const;
 	int modified_speed()const;
 	int modified_special()const;
+	int modified_critical()const;
 	void show_battle_stats()const;
 	bool get_is_human() const;
 	void set_ai();

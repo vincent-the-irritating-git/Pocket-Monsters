@@ -20,9 +20,9 @@ private:
 public:
 	Stats_Change(status_and_stats::stats_value, float);
 	Stats_Change();
-	float get_stats_stages();
-	status_and_stats::stats_value get_stats_value();
-	std::string get_stats_value_name();
+	float get_stats_stages()const;
+	status_and_stats::stats_value get_stats_value()const;
+	std::string get_stats_value_name()const;
 };
 
 struct Status_Effect_Change {
@@ -30,27 +30,27 @@ private:
 	status_and_stats::status_effect_value m_status_effect = status_and_stats::status_effect_value::NORMAL;
 public:
 	Status_Effect_Change(status_and_stats::status_effect_value status_effect);
-	std::string get_status_effect_name();
-	virtual uint8_t get_stun();
-	virtual uint8_t get_lower_limit();
-	virtual uint8_t get_upper_limit();
-	virtual Stats_Change get_stats_change();
-	virtual Stats_Change get_stats_change2();
+	std::string get_status_effect_name()const;
+	virtual int get_stun()const;
+	virtual int get_lower_limit()const;
+	virtual int get_upper_limit()const;
+	virtual Stats_Change get_stats_change()const;
+	virtual Stats_Change get_stats_change2()const;
 };
 
 struct Stun_Status_Effect :Status_Effect_Change {
 private:
-	uint8_t m_stun=-1;
-	uint8_t m_lower_limit = -1;
-	uint8_t m_upper_limit = -1;
+	int m_stun=-1;
+	int m_lower_limit = -1;
+	int m_upper_limit = -1;
 	status_and_stats::stats_value m_stat=status_and_stats::stats_value::ATTACK;
 public:
-	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, uint8_t stun);
-	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, uint8_t stun, uint8_t lower_limit, uint8_t upper_limit);
-	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, status_and_stats::stats_value stats, uint8_t stun);
-	virtual uint8_t get_stun() override;
-	virtual uint8_t get_lower_limit() override;
-	virtual uint8_t get_upper_limit() override;
+	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, int stun);
+	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, int stun, int lower_limit, int upper_limit);
+	Stun_Status_Effect(status_and_stats::status_effect_value status_effect, status_and_stats::stats_value stats, int stun);
+	virtual int get_stun()const override;
+	virtual int get_lower_limit()const override;
+	virtual int get_upper_limit()const override;
 };
 
 struct Damage_Status_Effect :Status_Effect_Change {
@@ -60,8 +60,8 @@ private:
 public:
 	Damage_Status_Effect(status_and_stats::status_effect_value status_effect, Stats_Change stat);
 	Damage_Status_Effect(status_and_stats::status_effect_value status_effect, Stats_Change stat, Stats_Change stat2);
-	virtual Stats_Change get_stats_change() override;
-	virtual Stats_Change get_stats_change2() override;
+	virtual Stats_Change get_stats_change()const override;
+	virtual Stats_Change get_stats_change2()const override;
 };
 
 namespace status_effect {

@@ -47,23 +47,23 @@ Status_Effect_Change& status_effect::FREEZE = status_effects::FREEZE;
 Status_Effect_Change& status_effect::SLEEP = status_effects::SLEEP;
 Status_Effect_Change& status_effect::REST = status_effects::REST;
 
-uint8_t Status_Effect_Change::get_stun() {
+int Status_Effect_Change::get_stun()const {
 	return-1;
 }
 
-uint8_t Status_Effect_Change::get_lower_limit() {
+int Status_Effect_Change::get_lower_limit() const {
 	return-1;
 }
 
-uint8_t Status_Effect_Change::get_upper_limit() {
+int Status_Effect_Change::get_upper_limit()const {
 	return -1;
 }
 
-Stats_Change Status_Effect_Change::get_stats_change() {
+Stats_Change Status_Effect_Change::get_stats_change()const {
 	return Stats_Change();
 }
 
-Stats_Change Status_Effect_Change::get_stats_change2()
+Stats_Change Status_Effect_Change::get_stats_change2()const
 {
 	return Stats_Change();
 }
@@ -72,31 +72,31 @@ Status_Effect_Change::Status_Effect_Change(status_effect_value status) :m_status
 	m_status_effect = status;
 }
 
-Stun_Status_Effect::Stun_Status_Effect(status_and_stats::status_effect_value status_effect, uint8_t stun): Status_Effect_Change(status_effect), m_stun(stun) {
+Stun_Status_Effect::Stun_Status_Effect(status_and_stats::status_effect_value status_effect, int stun): Status_Effect_Change(status_effect), m_stun(stun) {
 	m_stun = stun;
 }
 
-Stun_Status_Effect::Stun_Status_Effect(status_and_stats::status_effect_value status_effect, uint8_t stun, uint8_t lower_limit, uint8_t upper_limit): Status_Effect_Change(status_effect), m_stun(stun), m_lower_limit(lower_limit), m_upper_limit(upper_limit) {
+Stun_Status_Effect::Stun_Status_Effect(status_and_stats::status_effect_value status_effect, int stun, int lower_limit, int upper_limit): Status_Effect_Change(status_effect), m_stun(stun), m_lower_limit(lower_limit), m_upper_limit(upper_limit) {
 	m_stun = stun;
 	m_lower_limit = lower_limit;
 	m_upper_limit = upper_limit;
 }
 
-Stun_Status_Effect::Stun_Status_Effect(status_and_stats::status_effect_value status_effect, status_and_stats::stats_value stats_value, uint8_t stun) : Status_Effect_Change(status_effect), m_stat(stats_value), m_stun(stun){
+Stun_Status_Effect::Stun_Status_Effect(status_and_stats::status_effect_value status_effect, status_and_stats::stats_value stats_value, int stun) : Status_Effect_Change(status_effect), m_stat(stats_value), m_stun(stun){
 	m_stat = stats_value;
 	m_stun = stun;
 }
 
-uint8_t Stun_Status_Effect::get_stun()
+int Stun_Status_Effect::get_stun()const
 {
 	return m_stun;
 }
 
-uint8_t Stun_Status_Effect::get_lower_limit() {
+int Stun_Status_Effect::get_lower_limit()const {
 	return m_lower_limit;
 }
 
-uint8_t Stun_Status_Effect::get_upper_limit() {
+int Stun_Status_Effect::get_upper_limit()const {
 	return m_upper_limit;
 }
 
@@ -109,11 +109,11 @@ Damage_Status_Effect::Damage_Status_Effect(status_and_stats::status_effect_value
 	m_stat2 = stat2;
 }
 
-Stats_Change Damage_Status_Effect::get_stats_change(){
+Stats_Change Damage_Status_Effect::get_stats_change()const {
 	return m_stats;
 }
 
-Stats_Change Damage_Status_Effect::get_stats_change2() {
+Stats_Change Damage_Status_Effect::get_stats_change2()const {
 	return m_stat2;
 }
 
@@ -125,17 +125,17 @@ Stats_Change::Stats_Change(stats_value status, float stages_or_per_cent) : m_sta
 
 Stats_Change::Stats_Change() {};
 
-float Stats_Change::get_stats_stages()
+float Stats_Change::get_stats_stages()const
 {
 	return m_stages_or_per_cent;
 }
 
-stats_value Stats_Change::get_stats_value()
+stats_value Stats_Change::get_stats_value()const
 {
 	return m_stats_value;
 }
 
-std::string Stats_Change::get_stats_value_name()
+std::string Stats_Change::get_stats_value_name()const
 {
 	try {
 		return stat_names::stat_names.at(this->m_stats_value);
@@ -146,7 +146,7 @@ std::string Stats_Change::get_stats_value_name()
 	}
 }
 
-std::string Status_Effect_Change::get_status_effect_name()
+std::string Status_Effect_Change::get_status_effect_name()const
 {
 	try {
 		return status_effect_names::status_effect_names.at(this->m_status_effect);
