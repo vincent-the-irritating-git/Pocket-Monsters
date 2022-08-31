@@ -9,12 +9,11 @@
 #include "Move_Pokedex.h"
 #include "Battle_Pokemon.h"
 
-using namespace Move_names;
-
 int main() {
 	for (auto m : Move_Pokedex::gen1_moves) {
 		std::cout << m.first << std::endl;
 	}
-	const Move* m = Move_Pokedex::get_gen1_moves(DEFENCE_CURL);
+	std::cout << std::endl;
+	const Move* m = Move_Pokedex::get_gen1_moves("Thunder Shock");
 	m->show_move_values();
 }
