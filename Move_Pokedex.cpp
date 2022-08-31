@@ -3,17 +3,13 @@
 
 namespace {
 	namespace moves {
-	Attack_Move NULL_MOVE(" ", 0, 0, Type::NONE, 0);
-	//Status_Effect_Attack_Move poison_powder("Poison Powder", 15, 75, Type::POISON, 0, Status_Effect_Change(status_effect_value::POISON, 100));
-	Stats_Value_Attack_Move growl("Growl", 40, 100, Type::NORMAL, 0, Stats_Change(status_and_stats::stats_value::ATTACK, 1));
-	Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::ELECTRIC, 40, status_effect::PARALYSIS, 10);
-	Attack_Move tackle("Tackle", 35, 95, Type::NORMAL, 35);
+		Attack_Move NULL_MOVE(" ", 0, 0, Type::NONE, 0);
+		//Status_Effect_Attack_Move poison_powder("Poison Powder", 15, 75, Type::POISON, 0, Status_Effect_Change(status_effect_value::POISON, 100));
+		Stats_Value_Attack_Move growl("Growl", 40, 100, Type::NORMAL, 0, Stats_Change(status_and_stats::stats_value::ATTACK, 1));
+		Status_Effect_Attack_Move thundershock("Thunder Shock", 30, 100, Type::ELECTRIC, 40, status_effect::PARALYSIS, 10);
+		Attack_Move tackle("Tackle", 35, 95, Type::NORMAL, 35);
+	}
 }
-	const std::string NULL_MOVE = " ";
-	const int MAX_MOVES = 4;
-}
-
-
 
 const std::unordered_map<std::string,Move*> Move_Pokedex::initialise_gen1_moves()
 {
@@ -26,7 +22,7 @@ const std::unordered_map<std::string,Move*> Move_Pokedex::initialise_gen1_moves(
 	Attack_Move* ptr_tackle=&tackle;
 	//m.insert({ poison_powder.m_name,ptr_poison_powder });
 	m.insert({ growl.m_name, ptr_growl });
-	m.insert({ ::NULL_MOVE, ptr_NULL_MOVE });
+	m.insert({ Move_constants::NULL_MOVE, ptr_NULL_MOVE });
 	m.insert({ thundershock.m_name, ptr_thundershock });
 	m.insert({ tackle.m_name, ptr_tackle });
 	//m.insert({ moves::NULL_MOVE.m_name, moves::NULL_MOVE });
@@ -88,7 +84,7 @@ const Move* Move_Pokedex::get_gen1_moves(std::string name)
 		std::cout << e.what() << std::endl;
 		std::cout << "No such move found.";
 	}
-	return Move_Pokedex::gen1_moves.at(NULL_MOVE);
+	return Move_Pokedex::gen1_moves.at(Move_constants::NULL_MOVE);
 }
 
 const std::array<const Move*, 4>& Move_Pokedex::get_gen1_default_movesets(std::string name)
